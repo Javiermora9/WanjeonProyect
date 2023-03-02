@@ -1,0 +1,53 @@
+
+.navbar{
+    background-color: rgb(204, 24, 24);
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+.navbar-brand{
+    color: white;
+}
+.btn-outline-success{
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+
+
+}
+.btn:hover{
+
+    background-color: gray  ;
+}
+
+.btn{
+    color: white;
+    background-color: rebeccapurple
+    
+    
+}
+.Imgcarrusel{
+
+
+
+
+}
+.carousel-item{
+
+    height: 400px;
+    width: 100%
+
+}
+.img{
+
+    height: 20px;
+
+
+
+}
+#ac{
+    display: flex;
+}
