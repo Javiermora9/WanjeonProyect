@@ -55,15 +55,36 @@
 /* Formulario */
 
 .container {
-    max-width: 1100%;
-    margin-top: 50px;
+    max-width: 1000%;
+    margin-top: 20px;
+    padding: 100px;
 }
 
-button {
-    background-color: red;
+.titulo {
+    text-align: center;
+    
+}
+
+.parrafo {
+    margin-top: 20px;
+}
+
+formulario{
+    margin-top: 40px;
+}
+
+.button {
+    background-color: #eb3c33;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
     cursor: pointer;
+    margin-top: 20px;
+    display: flex;
 }
