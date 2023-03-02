@@ -11,36 +11,96 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="App.js" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
   </head>
 
   <body>
+    <div class="container"><br>
+      <!-- Texto -->
 
-    <div class="container">
+      <div class="titulo">
+        <h1>
+          <i class="fi fi-br-calendar"></i>
+          Ingresa los siguientes datos para agendar tu cita
+        </h1>
+      </div><br>
+
+      <div class="Parrafo">
+
+        <p>
+          Los campos señalados con el asterisco (*) son obligatorios, revisa muy
+          bien los datos antes de validar la información, recuerda que los datos
+          registrados son los que Wajeon tomará para realizar el trámite de la
+          solicitud. I
+        </p>
+
+      </div>
+
+      <!-- Formulario -->
 
       <form class="Formulario">
 
-        <label for="doctype">Tipo de documento:</label>
+        <div>
 
-        <select id="doctype" name="doctype">
+          <div class="form-group col-md-6">
 
-          <option value="dni">DNI</option>
+            <label class="form-check-label" for="doctype"
+              >Tipo de documento: <span style="color: red;">*</span>
+            </label>
+            
 
-          <option value="pasaporte">Pasaporte</option>
+            <select class="form-control" id="doctype" name="doctype">
 
-          <option value="cedula">Cédula</option>
+              <option value="carne">Seleccione</option>
 
-          <option value="cedula">Tarjeta de identidad</option>
+              <option value="carne">Carné Diplomatico</option>
 
-        </select><br /><br />
+              <option value="cedulaC">Cédula de Ciudadanía</option>
 
-        <label for="docnumber">Número de documento:</label>
+              <option value="cedulaE">Cédula de Extranjeria</option>
 
-        <input type="text" id="docnumber" name="docnumber" /><br /><br />
+              <option value="ti">Tarjeta de identidad</option>
 
-        <input type="button" value="Validar" onclick="validarDocumento()" />
-      
+              <option value="dni">DNI</option>
+
+              <option value="pasaporte">Pasaporte</option>
+
+              <option value="registroCivil">Registro Civil</option>
+            </select> <br>
+
+          </div>
+
+          <div class="form-group col-md-6">
+
+            <label class="form-check-label" for="docnumber"
+              >Número de documento: <span style="color: red;">*</span>
+            </label>
+
+            <input
+              class="form-control"
+              type="text"
+              id="docnumber"
+              name="docnumber"
+            /><br/>
+          </div>
+
+        <div class="form-group ">
+          <input class="button" type="button" value="Validar" onclick="validarDocumento()" />
+        </div>
       </form>
-
     </div>
 
     <script
