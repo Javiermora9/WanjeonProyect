@@ -26,13 +26,11 @@
 .btn{
     color: white;
     background-color: black;
-    
+
     
     
 }
 .Imgcarrusel{
-
-
 
 
 }
@@ -51,4 +49,10 @@
 }
 #ac{
     display: flex;
+}
+#imagen_usuario{
+
+    height: 20px;
+
+
 }
