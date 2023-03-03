@@ -1,20 +1,22 @@
-
-.navbar{
+.navbar {
     background-color: rgb(204, 24, 24);
     color: white;
-    
+
 }
-*{
+
+* {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .nav-link {
     color: white;
 }
-.navbar-brand{
+
+.navbar-brand {
     color: white;
 }
-.btn-outline-success{
+
+.btn-outline-success {
     background-color: black;
     color: white;
     border-color: black;
@@ -22,39 +24,46 @@
 
 
 }
-.btn:hover{
 
-    background-color: gray  ;
+.btn:hover {
+
+    background-color: gray;
 }
 
-.btn{
+.btn {
     color: white;
     background-color: black;
 
-    
-    
-}
-.Imgcarrusel{
 
 
 }
-.carousel-item{
 
-    height: 400px;
+#imgpromocion {
+
+    width: 100%;
+}
+
+.carousel-item {}
+
+.carousel-item {
+
+    height: 600px;
     width: 100%
-
 }
-.img{
+
+.img {
 
     height: 20px;
 
 
 
 }
-#ac{
+
+#ac {
     display: flex;
 }
-#imagen_usuario{
+
+#imagen_usuario {
 
     height: 20px;
     margin: 10px;
@@ -62,26 +71,23 @@
 
 }
 
-.txtProductos{
+.txtProductos {
 
-    background-color: red;
-    color:white;
-    font-style: italic;
-    margin: 15px;
-    padding-left: 20px;
+
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 4px 4px 4px 4px rgb(97, 95, 95);
+    color: white;
+    font-style:oblique;
+    font: 10%;
 
 }
 
-#imgprodutc{
+#imgprodutc {
 
     width: 200px;
-    
+
 }
 
-.card{
+.card {
 
 
     margin-top: 20px;
@@ -94,25 +100,26 @@
 }
 
 
-.col{
+.col {
 
     margin-bottom: 10px;
     margin-left: 10px;
     display: flex;
-    
+
 }
 
-.card-title{
+.card-title {
 
     text-align: center;
     height: 100px;
 
 }
 
-.btn{
+.btn {
     background-color: rgb(0, 0, 0);
 }
-.containerProductos{
 
-    background-color: azure;
+.containerProductos {
+
+    background-color: red;
 }
