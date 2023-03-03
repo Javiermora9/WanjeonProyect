@@ -56,17 +56,53 @@
 
 
 }
-#imgpromocion{
 
+.txtProductos{
 
-
+    background-color: red;
+    color:white;
+    margin: 10px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-.card-img-top{
+#imgprodutc{
 
-    width: 100px;
+    width: 200px;
+    
+}
+
+.card{
+
+
+    margin-top: 20px;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    border: none;
+    box-shadow: 6px 5px 2px 1px gray;
+    padding-left: 20px;
+}
+
+.card2{
+
+
+    margin-top: 20px;
+    padding-left: 200px;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    border: none;
+    box-shadow: 6px 5px 2px 1px gray;
+    padding-left: 20px;
+}
+
+.col{
+
+    margin-bottom: 10px;
+    margin-left: 10px;
     display: flex;
-
-
-
+    justify-content: space-between;
 }
+
