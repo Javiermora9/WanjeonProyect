@@ -1,38 +1,34 @@
-function validarDocumento() {
-    // Obtener el valor del número de documento
-    var docnumber = document.getElementById("docnumber").value;
-    
-    // Obtener el valor del tipo de documento
-    var doctype = document.getElementById("doctype").value;
-    
-    // Validar el número de documento según el tipo de documento seleccionado
-    switch (doctype) {
-      case "dni":
-        // El DNI debe tener 8 dígitos
-        if (/^\d{8}$/.test(docnumber)) {
-          alert("El número de DNI es válido");
-        } else {
-          alert("El número de DNI es inválido");
-        }
-        break;
-      case "pasaporte":
-        // El pasaporte debe tener entre 6 y 10 caracteres alfanuméricos
-        if (/^[a-zA-Z0-9]{6,10}$/.test(docnumber)) {
-          alert("El número de pasaporte es válido");
-        } else {
-          alert("El número de pasaporte es inválido");
-        }
-        break;
-      case "cedula":
-        // La cédula debe tener entre 7 y 10 dígitos
-        if (/^\d{7,10}$/.test(docnumber)) {
-          alert("El número de cédula es válido");
-        } else {
-          alert("El número de cédula es inválido");
-        }
-        break;
-      default:
-        alert("Seleccione un tipo de documento válido");
-    }
+function validarFormulario() {
+  // Obtenemos los valores de los campos del formulario
+  const tipoDocumento = document.getElementById("doctype").value;
+  const numeroDocumento = document.getElementById("docnumber").value;
+  const nombres = document.getElementById("name").value;
+  const apellidos = document.getElementById("apellidos").value;
+  const departamento = document.getElementById("residence").value;
+
+  // Verificamos que los campos obligatorios estén llenos
+  if (!tipoDocumento || !numeroDocumento || !nombres || !apellidos || !departamento) {
+    alert("Por favor, complete todos los campos obligatorios.");
+    return false;
   }
-  
+
+  // Verificamos que el tipo de documento sea válido
+  if (tipoDocumento === "Seleccione") {
+    alert("Por favor, seleccione un tipo de documento válido.");
+    return false;
+  }
+
+  // Verificamos que el número de documento sea válido
+  const regexNumeroDocumento = /^[0-9]+$/;
+  if (!regexNumeroDocumento.test(numeroDocumento)) {
+    alert("Por favor, ingrese un número de documento válido.");
+    return false;
+  }
+
+  // Si llegamos hasta aquí, es porque todo está correcto
+  return true;
+}
+
+<form class="Formulario" onsubmit="return validarFormulario()">
+  ...
+</form>
