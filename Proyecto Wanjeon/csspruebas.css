@@ -1,0 +1,40 @@
+
+
+.cuadrado {
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    display: inline-block;
+    justify-content: center;
+    margin-top:
+
+    
+  }
+  .asd {
+
+    background-color:white;
+    text-align: center;
+    margin: 50px;
+    margin-top: 100px;
+    border-radius: 10px;
+
+    
+
+  }
+  .img{
+
+    width: 500px;
+    height: 500px;
+
+  }
+  *{
+
+    box-sizing: border-box;
+  }
+  .cointanier{
+
+    display: flex;
+    justify-content: center;
+  }
+
+  
