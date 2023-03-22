@@ -10,6 +10,11 @@ box-sizing: border-box;
     height: 60px;
 
 }
+.container-fluid{
+
+
+    height: 30%;
+}
 .img-fluid_Nosotros{
 
     width: 300%;
@@ -19,6 +24,15 @@ box-sizing: border-box;
 
 
 
+
+
+}
+
+.carouselExampleIndicators{
+
+
+    width: auto;
+    height: auto;
 }
 .img-fluid_Vision{
 
