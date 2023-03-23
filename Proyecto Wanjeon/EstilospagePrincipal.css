@@ -21,11 +21,10 @@ box-sizing: border-box;
     height: 500px;
     
 
+}
+.card{
 
-
-
-
-
+    box-shadow: 6px 6px 4px 2px rgb(152, 151, 151);
 }
 
 .carouselExampleIndicators{
@@ -42,14 +41,23 @@ box-sizing: border-box;
 
     
 }
-.card-body{
 
-    padding:10px;
-    width: 500px;
-    padding-left: 100px;
+#servicio_Tratamiento{
+
+
+    background-image: url(Imagenes/Serviciosimg/tratamientos-esteticos.jpg);
+    width: 1000px;
     
-    
-    
+}
+
+#card_servicios{
+
+
+        width: auto;
+        padding: 1px;
+        padding-top: 20px;
+
+
 }
 #carouselExampleIndicators{
 
@@ -143,4 +151,10 @@ box-sizing: border-box;
 
     width: 400px;
     height: 200px;
+}
+
+.Servicios_General{
+
+
+    background-color: rgb(255, 255, 255);
 }
