@@ -1,122 +1,68 @@
 import productos from "./Productos.js"
 const products = productos();
 
+const productsPerPage = 10;
+let currentPage = 1;
 
-let currentIndex = 0;
+function renderProducts() {
+// Leer los valores de entrada de precios
+const priceMin = parseFloat(document.getElementById('price-min').value);
+const priceMax = parseFloat(document.getElementById('price-max').value);
 
-function renderProduct() {
-    const product = products[currentIndex];
+// Filtrar los productos en función del rango de precios
+const filteredProducts = products.filter(product => {
+  return product.price >= priceMin && product.price <= priceMax;
+});
 
-    
-    const Cardproducts = `
+// se calcula el numero de paginas, con relacion a los productos que uno quiera mostrar
 
-  <div class=" Contenedero"> 
-
-
-        <div class="card" ">
-                <img src="src-eco-store/${product.id}.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                
-                <button type="button" class="btn btn-danger"></button>
-                <button type="button" class="btn btn-success"></button>
-                <button type="button" class="btn btn-primary"></button>  
-                  
-                </div>
-        </div>
+const startIndex = (currentPage - 1) * productsPerPage;
+const endIndex = startIndex + productsPerPage;
+const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
 
 
- 
-    <div class="container ">
-      <div class="row">
-        <div class="col">
-          <div class="ID">
-            <label for="formGroupExampleInput" class="form-label">ID</label>
-            <input type="text" class="form-control" id="formGroupExampleInput_ID"  placeholder="${product.id}">
-          </div>
-          
-          <div class="mb">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="${product.description}"></textarea>
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Title</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.title}">
-          </div>
+// plantilla de presentacion de las cartas
+
+let cardsHtml = '';
+for (let i = 0; i < productsToDisplay.length; i++) {
+  const cardHtml = `
+    <div class="col">
+      <div class="card" >
+        <h5 class="card-discount"> ${productsToDisplay[i].discountPer}%,${productsToDisplay[i].discountUni} </h5>
+        <img src="productos/${productsToDisplay[i].id}.jpg" class="card-img-top" alt="..." >
+        <div class="card-body" >
+          <h5 class="card-title">${productsToDisplay[i].title}</h5>
+          <p class="card-amount"> ${productsToDisplay[i].amount}</p>
+          <h6 class="card-price"> $ ${productsToDisplay[i].price} </h6>
+          <a href="#" class="btn btn-primary">Agregar al carrito</a>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="mb-2">
-            <label for="formGroupExampleInput" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.price}">
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-2">
-            <label for="formGroupExampleInput" class="form-label">Cantidad</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.amount}">
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-6">
-            <label for="formGroupExampleInput" class="form-label">Descuento</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.discount}">
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-6">
-            <label for="formGroupExampleInput" class="form-label">%</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.discountPer}">
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-6">
-            <label for="formGroupExampleInput" class="form-label">Unid.</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${product.discountUni}">
-          </div>
-        </div>
-      </div>
-      
-    </div>
-
-
-</div>  
-  `;
-
-    const lugarProductos = document.getElementById('lugarProductos');
-    lugarProductos.innerHTML = Cardproducts;
-
-
+    </div>`;
+  cardsHtml += cardHtml;
 }
 
-function handleNextClick() {
+const lugarProductos = document.getElementById('lugarProductos');
+lugarProductos.innerHTML = cardsHtml;
 
-  if (currentIndex >= 26) {
-    currentIndex = 0;
-  }
-    currentIndex = (currentIndex + 1) % products.length;
-    renderProduct();
+const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+const paginationButtons = document.getElementById('pagination-buttons');
+
+
+// funcionamiento de la paginacion
+paginationButtons.innerHTML = '';
+for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+  const button = document.createElement('button');
+  button.textContent = pageNumber;
+  button.addEventListener('click', () => {
+    currentPage = pageNumber;
+    renderProducts();
+  });
+  paginationButtons.appendChild(button);
+}
 }
 
-function handleNextClickleft() {
+// Agregar un evento de clic al botón de búsqueda de precios
+document.getElementById('search-button').addEventListener('click', renderProducts);
 
-  if (currentIndex <= 0) {
-    currentIndex = 26;
-  }
-
-    currentIndex = (currentIndex - 1) % products.length;
-    
-    renderProduct();
-}
-
-
-const btnNext = document.getElementById('btnNext');
-btnNext.addEventListener('click', handleNextClick);
-
-
-const btnleft = document.getElementById('btnleft');
-btnleft.addEventListener('click', handleNextClickleft);
-
-renderProduct();
+// muestra la funcion de rederproducts, la deja activa siempre
+renderProducts();
