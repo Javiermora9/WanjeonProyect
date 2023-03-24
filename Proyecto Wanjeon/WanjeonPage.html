@@ -26,7 +26,7 @@
                     <div class="container-fluid">
                         <a class="navbar-brand" href="WanjeonPage.html">
                             <img src="Imagenes/logo.png" alt="Logo" width="50" height="30"
-                                class="d-inline-block align-text-top"  > 
+                                class="d-inline-block align-text-top">
                             Wanjeon
                         </a>
                 </nav>
@@ -51,22 +51,47 @@
                                     <a class="nav-link " aria-current="page" href="#">Citas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="#">Especialistas </a>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    
+                                         Especialistas
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="">Fisios</a></li>
+                                          <li><a class="dropdown-item" href="Dermatologos.html">Dermatogol@s</a></li>
+                                          <li><a class="dropdown-item" href="#"></a></li>
+                                        </ul>
+                                      </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
-                <div>
+                
+                
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                          <img src="Imagenes/usuarionuevo.png" alt="" id="imagen_usuario">
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
+                          <li><a class="dropdown-item" href="#">Citas Programadas</a></li>
+                          <li><a class="dropdown-item" href="#"></a></li>
 
+                        </ul>
 
-                    <div class="Solicitud_cita"></div>
-                    <a href=""><img src="Imagenes/usuarionuevo.png" alt="" id="imagen_usuario"></a>
-                    <button class="btn " type="button">Realiza tu cita!! </button>
+                        <a href="Formulario.html">
+                            <button class="btn " type="button">Realiza tu cita!! </button>
+                        </a>
+                      </div>
+
+                    
+                  
 
                 </div>
-            </div>
+        
 
 
         </nav>
@@ -145,7 +170,7 @@
 
 
         <!-- Jumbotron -->
-        <div class="bg-image p-4 text-center shadow-1-strong rounded mb-5 text-white"
+        <div class="bg-image p-1 text-center shadow-1-strong rounded mb-5 text-white"
             style="background-image: url(Imagenes/woman-relaxing-in-the-spa-scaled.jpg)">
 
             <h2> Servicios que presentamos </h1>
@@ -163,11 +188,11 @@
                         <div class="container text-lg-start" id="containerServices">
                             <div class="row">
                                 <div class="col" id="columnasservices">
-                                    <div class="card  " style="background-color:#ffffff; width: 23rem;" >
+                                    <div class="card  " style="background-color:#ffffff; width: 23rem;">
                                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                             <a href="#">
-                                            <img src="Imagenes/Serviciosimg/tratamientos-esteticos.jpg"
-                                                class="img-fluid" style="height: 16rem;"  />
+                                                <img src="Imagenes/Serviciosimg/tratamientos-esteticos.jpg"
+                                                    class="img-fluid" style="height: 16rem;" />
                                             </a>
                                             <a href="#!">
                                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
@@ -191,8 +216,8 @@
                                     <div class="card  " style="background-color:#ffffff; width: 23rem">
                                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                             <a href="#">
-                                            <img src="Imagenes/Serviciosimg/Fisioterapia.jpg" class="img-fluid"
-                                                style="height: 16rem;" />
+                                                <img src="Imagenes/Serviciosimg/Fisioterapia.jpg" class="img-fluid"
+                                                    style="height: 16rem;" />
                                             </a>
                                             <a href="#!">
                                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
@@ -217,9 +242,9 @@
                                     <div class="card  " style="background-color:#ffffff; width: 23rem;">
                                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                             <a href="">
-                                            <img src="Imagenes/Serviciosimg/nutricion.jpg" class="img-fluid"
-                                                style="height: 16rem;" />
-                                            </a>    
+                                                <img src="Imagenes/Serviciosimg/nutricion.jpg" class="img-fluid"
+                                                    style="height: 16rem;" />
+                                            </a>
                                             <a href="#!">
                                                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.15)">
                                                 </div>
@@ -277,79 +302,79 @@
                 <p>.</p>
 
             </div>
-        </div>    
-            <!-- Jumbotron -->
+        </div>
+        <!-- Jumbotron -->
 
-            <section>
-                <div class="container my-5">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <!-- Card -->
-                            <div class="bg-image card shadow-1-strong" style="
+        <section>
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <!-- Card -->
+                        <div class="bg-image card shadow-1-strong" style="
                                 background-image: url('Imagenes/Cremas\ faciales.jpg');
                                 ">
-                                <div class="card-body text-white">
-                                    <h5 class="card-title">Cremas</h5>
-                                    <p class="card-text" style="color: black;">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-outline-light">Ver</a>
-                                </div>
+                            <div class="card-body text-white">
+                                <h5 class="card-title">Cremas</h5>
+                                <p class="card-text" style="color: black;">
+                                    Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.
+                                </p>
+                                <a href="#!" class="btn btn-outline-light">Ver</a>
                             </div>
-                            <!-- Card -->
                         </div>
+                        <!-- Card -->
+                    </div>
 
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <!-- Card -->
-                            <div class="bg-image card shadow-1-strong" style="
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <!-- Card -->
+                        <div class="bg-image card shadow-1-strong" style="
                                 background-image: url(Imagenes/mascarillas.avif);
                                 ">
-                                <div class="card-body text-white">
-                                    <h5 class="card-title">Mascarillas</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-outline-light">Ver</a>
-                                </div>
+                            <div class="card-body text-white">
+                                <h5 class="card-title">Mascarillas</h5>
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.
+                                </p>
+                                <a href="#!" class="btn btn-outline-light">Ver</a>
                             </div>
-                            <!-- Card -->
                         </div>
+                        <!-- Card -->
+                    </div>
 
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <!-- Card -->
-                            <div class="bg-image card shadow-1-strong" style="
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <!-- Card -->
+                        <div class="bg-image card shadow-1-strong" style="
                                 background-image: url(Imagenes/Hidratantes.jpg);
                                 ">
-                                <div class="card-body text-white">
-                                    <h5 class="card-title">Hidratantes</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-outline-light">Ver</a>
-                                </div>
+                            <div class="card-body text-white">
+                                <h5 class="card-title">Hidratantes</h5>
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.
+                                </p>
+                                <a href="#!" class="btn btn-outline-light">Ver</a>
                             </div>
-                            <!-- Card -->
                         </div>
+                        <!-- Card -->
                     </div>
                 </div>
+            </div>
 
 
-            </section>
-
-
-
-        
+        </section>
 
 
 
-            <!---lugar donde va nuestra informacion -->
 
 
-        </div>
-            <script src="Scripts.js" type="module"></script>
+
+
+        <!---lugar donde va nuestra informacion -->
+
+
+    </div>
+    <script src="Scripts.js" type="module"></script>
 </body>
 
 <footer>
@@ -401,7 +426,7 @@
                             <i class="fas fa-gem me-3"></i>Wanjeon
                         </h6>
                         <p>
-                            see you well,feel good 
+                            see you well,feel good
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -431,7 +456,7 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                        INFO
+                            INFO
                         </h6>
                         <p>
                             <a href="Page_NosotrosInfo.html" class="text-reset">About us
