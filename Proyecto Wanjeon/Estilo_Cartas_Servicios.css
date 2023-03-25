@@ -25,7 +25,7 @@
     height: 50px;
     width: 400px;
     padding: 6px;
-    background: rgb(212, 210, 210);
+    
     position: absolute;
     bottom: 0px;
     transition: 0.6s;
@@ -65,7 +65,7 @@
 }
 .carta:hover .imagen_Carta{
 
-    transform: scale(1.1) rotate(2deg);
+    transform: scale(1.1) rotate(1deg);
 
 
 
