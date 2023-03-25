@@ -1,7 +1,7 @@
 import productos from "./Productos.js"
 const products = productos();
 
-const productsPerPage = 10;
+const productsPerPage = 8;
 let currentPage = 1;
 
 function renderProducts() {
@@ -66,3 +66,6 @@ document.getElementById('search-button').addEventListener('click', renderProduct
 
 // muestra la funcion de rederproducts, la deja activa siempre
 renderProducts();
+
+
+
