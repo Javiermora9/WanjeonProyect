@@ -2,6 +2,7 @@
 
     height: 320px;
     margin: 30px;
+    border-radius: 6px;
     box-shadow: 10px 10px 40px black;
     position: relative;
     
@@ -12,7 +13,7 @@
 
     height: 320px;
     width: 400px;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 .contenedor_Servicios{
 
@@ -27,7 +28,7 @@
     background: rgb(212, 210, 210);
     position: absolute;
     bottom: 0px;
-    transition: .5s;
+    transition: 0.6s;
     
 }
 .Texto_carta{
@@ -36,7 +37,7 @@
     margin: 10px;
     visibility: hidden;
     opacity: 0;
-    color: b
+    color: black;
 
 }
 .Titulo_Carta{
@@ -64,7 +65,7 @@
 }
 .carta:hover .imagen_Carta{
 
-    transform: scale(1.1) rotate(-1deg);
+    transform: scale(1.1) rotate(2deg);
 
 
 
