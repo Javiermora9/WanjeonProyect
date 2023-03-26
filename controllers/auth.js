@@ -47,4 +47,22 @@ exports.register = (req, res) => {
     })
 
 
+
+    exports.login = (req, res) => {
+        const { email, password } = req.body;
+    
+        db.query("SELECT * FROM usuarios WHERE email = ?", [email], async (err, resultados) => {
+            if (err) {
+                console.log(err);
+            }
+            if (resultados.length == 0 || !(await bcrypt.compare(password, resultados[0].password))) {
+                return res.status(401).render('login', {
+                    message: 'El email o la contraseña son incorrectos'
+                });
+            } else {
+                // Aquí puedes manejar el inicio de sesión exitoso
+                res.send(`Bienvenido ${resultados[0].name}!`);
+            }
+        });
+    }
 }
