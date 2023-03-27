@@ -34,7 +34,7 @@ for (let i = 0; i < productsToDisplay.length; i++) {
           <h5 class="card-title">${productsToDisplay[i].title}</h5>
           <p class="card-amount"> ${productsToDisplay[i].amount}</p>
           <h6 class="card-price"> $ ${productsToDisplay[i].price} </h6>
-          <a href="#" class="btn btn-primary">Agregar al carrito</a>
+          <a href="#" class="btn2 btn-primary">Agregar al carrito</a>
         </div>
       </div>
     </div>`;
