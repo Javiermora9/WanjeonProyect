@@ -36,5 +36,5 @@ app.use('/auth', require('./routes/auth'));
 
 
 app.listen(4000, () => {
-    console.log('app listening on port 4000!');
+    console.log('Server corriendo en http://localhost:4000');
 });
