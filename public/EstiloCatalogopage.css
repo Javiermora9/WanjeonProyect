@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation&family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation&family=Libre+Baskerville&display=swap');
+
+.Titulo_Catalogo {
+
+
+
+    margin: 20px;
+    text-align: center;
+    text-shadow: 5px 5px 20px aliceblue;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.Contenedor_Catalogos {
+
+
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10%;
+    margin-right: 10%;
+
+
+}
+
+.tratamientos {
+
+    background-color: whitesmoke;
+    height: auto;
+    margin-bottom: 100px;
+    border: solid black;
+    border-radius: 10px;
+}
+
+.Nombre_tratamiento h3 {
+
+    font-size: 30px;
+    margin: 10px;
+    text-shadow: 5px 5px 20px orange;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Libre Baskerville', serif;
+
+
+}
+.boton_Solit{
+
+    color: black;
+    background-color: rgb(176, 107, 107);
+    border: none;
+    margin: 2px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.IMG_AND_TEX {
+
+
+    font-size: 25px;
+    margin-left: 50%;
+    width: 500px;
+    margin-bottom: 20px;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+
+
+}
+.boton_Solit:hover{
+
+    cursor: pointer;
+}
+.boton_Solit:hover{
+
+    background-color:antiquewhite;
+    transform: scale(1.1);
+}

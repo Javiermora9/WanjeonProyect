@@ -8,6 +8,11 @@
     <title>Wanjeon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="EstilospagePrincipal.css">
+    <link rel="stylesheet" href="Scripts.js">
+    <link rel="stylesheet" href="Estilo_Cartas_Servicios.css">
+    <link rel="stylesheet" href="Estilo_Productos_Des.css">
+    <link rel="stylesheet" href="EstiiloSliderProvedores.css">
 </head>
 
 <body>
@@ -15,9 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="EstilospagePrincipal.css">
-    <link rel="stylesheet" href="Scripts.js">
-    <link rel="stylesheet" href="Estilo_Cartas_Servicios.css">
+
 
     <div>
         <nav class="navbar">
@@ -146,65 +149,83 @@
 
 
     <!-- En esta parte estan los provedores-->
-    <div>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                    <img src="Imagenes/logosProvedores/Cetaphil_Logo.jpg" alt="" class="logos_Provedores" srcset="">
-                </div>
-                <div class="col">
-                    <img src="Imagenes/logosProvedores/CeraVe-logo.jpg" class="logos_Provedores" alt="" srcset="">
-                </div>
-                <div class="col">
-                    <img src="Imagenes/logosProvedores/Logo-La-Roche-Posay.jpg" class="logos_Provedores" alt=""
-                        srcset="">
-                </div>
-                <div class="col">
-                    <img src="Imagenes/logosProvedores/Eucerinlogo.png" class="logos_Provedores_Eu" alt="" srcset="">
-                </div>
-                <div class="col">
-                    <img src="Imagenes/logosProvedores/Neutrogena-Logo.png" class="logos_Provedores_Eu" alt=""
-                        srcset="">
-                </div>
+    <section class="provedores">
 
+        <div>
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Cetaphil_Logo.jpg" alt="" class="logos_Provedores" srcset="">
+                    </div>
+                    <div class="slslide">
+                        <img src="Imagenes/logosProvedores/CeraVe-logo.jpg" class="logos_Provedores" alt="" srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Logo-La-Roche-Posay.jpg" class="logos_Provedores" alt=""
+                            srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Eucerinlogo.png" class="logos_Provedores_Eu" alt="" srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Neutrogena-Logo.png" class="logos_Provedores_Eu" alt=""
+                            srcset="">
+                    </div>
+    
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Cetaphil_Logo.jpg" alt="" class="logos_Provedores" srcset="">
+                    </div>
+                    <div class="slslide">
+                        <img src="Imagenes/logosProvedores/CeraVe-logo.jpg" class="logos_Provedores" alt="" srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Logo-La-Roche-Posay.jpg" class="logos_Provedores" alt=""
+                            srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Eucerinlogo.png" class="logos_Provedores_Eu" alt="" srcset="">
+                    </div>
+                    <div class="slide">
+                        <img src="Imagenes/logosProvedores/Neutrogena-Logo.png" class="logos_Provedores_Eu" alt=""
+                            srcset="">
+                    </div>
+                    
+    
+                </div>
             </div>
-        </div>
+    </section>
+   
 
 
 
-        <!-- Jumbotron -->
-        <div class="bg-image p-1 text-center shadow-1-strong rounded mb-5 text-white"
-            style="background-image: url(Imagenes/woman-relaxing-in-the-spa-scaled.jpg)">
-
-            <h2> Servicios que presentamos </h1>
-        </div>
-        <!-- Jumbotron -->
+       
 
 
-     
-
-        
 
         <!--Servicios que presentamos-->
         <section>
+
+            <h2 class="Titulo_ServicioGeneral"> Servicios que Brindamos</h2>
             <div class="contenedor_Servicios">
                 <div class="carta">
-                    <a href="#">
-                    
-                    <img src="Imagenes/Serviciosimg/tratamientos-esteticos.jpg" alt="" srcset="" class="imagen_Carta">
-                </a>
+                    <a href="PaginaTratamientosEsteticos.html">
+
+                        <img src="Imagenes/Serviciosimg/tratamientos-esteticos.jpg" alt="" srcset=""
+                            class="imagen_Carta">
+                    </a>
                     <div class="intro">
                         <h1 class="Titulo_Carta">Tratamientos Esteticos</h1>
-                        <p class="Texto_carta">ofrecemos una variedad de procedimientos para mejorar la apariencia física y
+                        <p class="Texto_carta">ofrecemos una variedad de procedimientos para mejorar la apariencia
+                            física y
                             aumentar la confianza en uno mismo </p>
                     </div>
 
                 </div>
 
                 <div class="carta">
-                        <a href="http://">
-                    <img src="Imagenes/Serviciosimg/Fisioterapia.jpg" alt="" srcset="" class="imagen_Carta">
-                </a>
+                    <a href="">
+                        <img src="Imagenes/Serviciosimg/Fisioterapia.jpg" alt="" srcset="" class="imagen_Carta">
+                    </a>
                     <div class="intro">
                         <h1 class="Titulo_Carta">Fisioterapia</h1>
                         <p class="Texto_carta">Ofrecemos tratamiento y la prevención de lesiones y dolencias
@@ -216,9 +237,9 @@
 
 
                 <div class="carta">
-                        <a href="http://">  
-                    <img src="Imagenes/Serviciosimg/nutricion.jpg" alt="" srcset="" class="imagen_Carta">
-                </a>
+                    <a href="http://">
+                        <img src="Imagenes/Serviciosimg/nutricion.jpg" alt="" srcset="" class="imagen_Carta">
+                    </a>
                     <div class="intro">
                         <h1 class="Titulo_Carta">Nutricion </h1>
                         <p class="Texto_carta"> Ofrecemos asesoramiento y orientación para mejorar la alimentación y
@@ -231,112 +252,99 @@
 
         </section>
 
-           <!-- Servicios que presentamos -->
+        <!-- Servicios que presentamos -->
 
 
-        <div class="">
+        <!-- Productos y sus breve explicacion  -->
 
-            <!-- Jumbotron -->
-            <div class="bg-image small text-center shadow-1-strong rounded mb-5 text-white"
-                style="background-image: url(Imagenes/spaportada.jpg)" ;>
+        <section class="Cremas">
 
-                <h1 class="mb-3 h2">Productos</h1>
+            <div class="Cremas_Info">
+                <div class="texto_Explicacion">
+                    <h2 class="titulo_Explicaicon"> Cremas Faciales</h2>
+                    <p class="Explicacion">¿Quieres lucir una piel suave, hidratada y saludable? Las cremas faciales son
+                        la clave para lograrlo. Con una amplia variedad de opciones para elegir, puedes encontrar la
+                        crema perfecta para tus necesidades de cuidado de la piel. Desde hidratantes hasta
+                        anti-envejecimiento y para pieles sensibles, hay una crema facial para todos. Los ingredientes
+                        clave, como el acido hialuronico y la vitamina c, pueden mejorar la apariencia y la salud de tu
+                        piel. ¡no esperes mas para comenzar a disfrutar de los beneficios de una buena crema facial!</p>
+                    <a href="#"><button class="boton">Comprar cremas</button></a>
+                </div>
 
-                <p>.</p>
+                <div class="Img_Cremas">
 
-            </div>
-        </div>
-        <!-- Jumbotron -->
-
-        <section>
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <!-- Card -->
-                        <div class="bg-image card shadow-1-strong" style="
-                                background-image: url('Imagenes/Cremas\ faciales.jpg');
-                                ">
-                            <div class="card-body text-white">
-                                <h5 class="card-title">Cremas</h5>
-                                <p class="card-text" style="color: black;">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
-                                </p>
-                                <a href="PageProductos.html" class="btn btn-outline-light">Ver</a>
-                            </div>
-                        </div>
-                        <!-- Card -->
-                    </div>
-
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <!-- Card -->
-                        <div class="bg-image card shadow-1-strong" style="
-                                background-image: url(Imagenes/mascarillas.avif);
-                                ">
-                            <div class="card-body text-white">
-                                <h5 class="card-title">Mascarillas</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
-                                </p>
-                                <a href="#!" class="btn btn-outline-light">Ver</a>
-                            </div>
-                        </div>
-                        <!-- Card -->
-                    </div>
-
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <!-- Card -->
-                        <div class="bg-image card shadow-1-strong" style="
-                                background-image: url(Imagenes/Hidratantes.jpg);
-                                ">
-                            <div class="card-body text-white">
-                                <h5 class="card-title">Hidratantes</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
-                                </p>
-                                <a href="#!" class="btn btn-outline-light">Ver</a>
-                            </div>
-                        </div>
-                        <!-- Card -->
-
-                    </div>
-
-
+                    <img src="Imagenes/Cremas faciales.jpg" alt="" class="Img_CremasFaciales">
 
                 </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="Hidratantes">
+
+            <div class="Hidratantes_Info">
+
+                <div class="Img_Hidratantes">
+
+                    <img src="Imagenes/Hidratantes.jpg" alt="" class="Img_Hidratantes_faciales">
+
+                </div>
+
+                <div class="texto_Explicacion_Hidra">
+                    <h2 class="titulo_Explicaicon"> Hidratantes Faciales</h2>
+                    <p class="Explicacion">¿Sientes tu piel seca y aspera? ¡necesitas una hidratante facial! Las cremas
+                        hidratantes faciales proporcionan a tu piel la humedad necesaria para mantenerla suave y
+                        saludable. Los ingredientes hidratantes como el acido hialuronico y la glicerina, atraen y
+                        retienen la humedad en la piel, mientras que los aceites emolientes como la manteca de karite y
+                        el aceite de jojoba, la sellan en la piel. La hidratacion adecuada tambien puede ayudar a
+                        prevenir arrugas y líneas finas. ¡no esperes mas para darle a tu piel la hidratacion que
+                        necesita!</p>
+                    <a href="#"><button class="boton">Comprar Hidratantes</button></a>
+                </div>
+
             </div>
 
 
         </section>
 
+        <section class="Mascarillas">
+
+            <div class="Mascarilla_Info">
+                <div class="texto_Explicacion">
+                    <h2 class="titulo_Explicaicon"> Mascarillas Faciales</h2>
+                    <p class="Explicacion"> ¡Dale a tu piel el tratamiento que se merece con una mascarilla facial! Las
+                        mascarillas faciales pueden ayudar a hidratar, exfoliar, limpiar y rejuvenecer tu piel. Con una
+                        amplia variedad de opciones para elegir, puedes encontrar la mascarilla perfecta para tus
+                        necesidades de cuidado de la piel. Los ingredientes clave, como el acido salicílico y el carbon
+                        activado, pueden ayudar a reducir los poros y el exceso de aceite, mientras que la avena y el
+                        aloe vera pueden calmar y suavizar la piel. Ya sea que necesites una mascarilla para tratar un
+                        problema específico de la piel o simplemente para darte un capricho, ¡una mascarilla facial es
+                        una adicion imprescindible a cualquier rutina de cuidado de la piel!
 
 
-        <section>
 
-
-
-            <div class="card bg-dark text-white">
-                <img src="https://mdbcdn.b-cdn.net/img/new/slides/017.webp" class="card-img" alt="Stony Beach" />
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.
                     </p>
-                    <p class="card-text">Last updated 3 mins ago</p>
+                    <a href="#"><button class="boton">Comprar Mascarillas</button></a>
                 </div>
+
+                <div class="Img_Mascarrilla">
+
+                    <img src="Imagenes/mascarillas.avif" alt="" class="Img_Mascarillas">
+
+                </div>
+
             </div>
+
+
+
         </section>
 
+        <!-- Productos y sus breve explicacion  -->
 
 
 
-
-
-
-        <!---lugar donde va nuestra informacion -->
 
 
     </div>
@@ -404,16 +412,16 @@
                             Products
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Angular</a>
+                            <a href="#!" class="text-reset">Cremas</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">React</a>
+                            <a href="#!" class="text-reset">Hidratantes</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Vue</a>
+                            <a href="#!" class="text-reset">Mascarillas</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Laravel</a>
+                       
                         </p>
                     </div>
                     <!-- Grid column -->
