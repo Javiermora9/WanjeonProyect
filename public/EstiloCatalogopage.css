@@ -40,7 +40,7 @@
 
     font-size: 30px;
     margin: 10px;
-    text-shadow: 5px 5px 20px orange;
+    text-shadow: 5px 5px 20px  #4594a5;
     font-family: 'Alkatra', cursive;
     font-family: 'Edu NSW ACT Foundation', cursive;
     font-family: 'Libre Baskerville', serif;
@@ -50,7 +50,7 @@
 .boton_Solit{
 
     color: black;
-    background-color: rgb(176, 107, 107);
+    background-color: #4594a5;
     border: none;
     margin: 2px;
     font-size: 20px;
@@ -65,8 +65,7 @@
     margin-left: 50%;
     width: 500px;
     margin-bottom: 20px;
-    font-family: 'Alkatra', cursive;
-    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: "HudsonNY";
 
 
 }
@@ -76,6 +75,6 @@
 }
 .boton_Solit:hover{
 
-    background-color:antiquewhite;
+    background-color:white;
     transform: scale(1.1);
 }

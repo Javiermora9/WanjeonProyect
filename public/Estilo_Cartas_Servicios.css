@@ -3,7 +3,7 @@
     height: 320px;
     margin: 30px;
     border-radius: 6px;
-    box-shadow: 10px 10px 40px black;
+    box-shadow: 10px 10px 40px #80bfb4;
     position: relative;
     
 
@@ -55,7 +55,7 @@
 
     height: 200px;
     bottom: 1px;
-    background: antiquewhite;
+    background:  #80bfb4;
 }
 
 .carta:hover .Texto_carta{
