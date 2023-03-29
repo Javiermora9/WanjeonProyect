@@ -34,13 +34,11 @@ exports.register = (req, res) => {
         let hashedPassword = await bcrypt.hash(password, 10);
         console.log(hashedPassword);
         
-        db.query("INSERT INTO usuarios SET ?", {name: name, email: email, password: hashedPassword, direccion: address, telefono: phone, documento: document}, (err, resultados) => {
+        db.query("INSERT INTO usuarios SET ?", {us_nombre: name, us_correo: email, us_password: hashedPassword, us_direccion: address, us_telefono: phone, us_documento: document}, (err, resultados) => {
             if (err) {
                 console.log(err);
             }else {
-                return res.redirect('login', {
-                    message: 'Usuario registrado'
-                });
+                res.redirect('../login');
             }
 
     })
@@ -60,7 +58,8 @@ exports.register = (req, res) => {
                 });
             } else {
                 // Aquí puedes manejar el inicio de sesión exitoso
-                res.send(`Bienvenido ${resultados[0].us_nombre}!`);
+                res.redirect('/');
+                
             }
         });
     }
