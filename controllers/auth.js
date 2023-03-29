@@ -16,12 +16,12 @@ exports.register = (req, res) => {
         return res.status(400).send("passwords do not match");
     }
 
-    db.query("SELECT * FROM usuarios WHERE email =?", [email], async (err, resultados) => {
+    db.query("SELECT * FROM usuarios WHERE us_correo =?", [email], async (err, resultados) => {
         if (err) {
             console.log(err);
             
         }
-        if (resultados.length > 0) {
+        if ( resultados.length > 0) {
             return res.render('register', {
                 message: 'El email ya esta registrado'
             });
@@ -33,17 +33,18 @@ exports.register = (req, res) => {
         
         let hashedPassword = await bcrypt.hash(password, 10);
         console.log(hashedPassword);
-
+        
+        db.query("INSERT INTO usuarios SET ?", {name: name, email: email, password: hashedPassword, direccion: address, telefono: phone, documento: document}, (err, resultados) => {
+            if (err) {
+                console.log(err);
+            }else {
+                return res.redirect('login', {
+                    message: 'Usuario registrado'
+                });
+            }
 
     })
-    db.query("INSERT INTO usuarios SET ?", {name: name, email: email, password: hashedPassword, direccion: address, telefono: phone, documento: document}, (err, resultados) => {
-        if (err) {
-            console.log(err);
-        }else {
-            return res.redirect('login', {
-                message: 'Usuario registrado'
-            });
-        }
+    
     })
 
 
