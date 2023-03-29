@@ -103,11 +103,11 @@
     border-radius: 10px;
     margin: 50px;
     position: relative;
-    box-shadow: 10px 10px 100px white;
+    box-shadow: 10px 10px 1000px #80bfb4;
 }
 .Img_Hidratantes{
 
-    background: #80bfb4;
+    background:#4594a5;
     height: 700px;
     width: 800px;
     
