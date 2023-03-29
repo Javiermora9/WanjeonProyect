@@ -16,12 +16,16 @@ exports.register = (req, res) => {
         return res.status(400).send("passwords do not match");
     }
 
-    db.query("SELECT * FROM usuarios WHERE email =?", [email], async (err, results) => {
+    db.query("SELECT * FROM usuarios WHERE email =?", [email], async (err, resultados) => {
         if (err) {
-            console.log(err);            
+            console.log(err);
+            
         }
-        
-         else if (password!== passwordconfirm) {
+        if (resultados.length > 0) {
+            return res.render('register', {
+                message: 'El email ya esta registrado'
+            });
+        } else if (password!== passwordconfirm) {
             return res.render('register', {
                 message: 'las contraseñas no coinciden'
             });
@@ -29,38 +33,36 @@ exports.register = (req, res) => {
         
         let hashedPassword = await bcrypt.hash(password, 10);
         console.log(hashedPassword);
-        
-        db.query("INSERT INTO usuarios SET ?", {us_nombre: name, us_correo: email, us_password: hashedPassword, us_direccion: address, us_telefono: phone, us_documento: document}, (err, resultados) => {
-            if (err) {
-                console.log(err);
-            }else {
-                return res.redirect('login', {
-                    message: 'Usuario registrado'
-                });
-            }
+
 
     })
-    
-    })
-
-
-
-    
-}
-exports.login = (req, res) => {
-    const { email, password } = req.body;
-
-    db.query("SELECT * FROM usuarios WHERE email = ?", [email], async (err, resultados) => {
+    db.query("INSERT INTO usuarios SET ?", {name: name, email: email, password: hashedPassword, direccion: address, telefono: phone, documento: document}, (err, resultados) => {
         if (err) {
             console.log(err);
-        }
-        if (resultados.length == 0 || !(await bcrypt.compare(password, resultados[0].password))) {
-            return res.status(401).render('login', {
-                message: 'El email o la contraseña son incorrectos'
+        }else {
+            return res.redirect('login', {
+                message: 'Usuario registrado'
             });
-        } else {
-            // Aquí puedes manejar el inicio de sesión exitoso
-            res.send(`Bienvenido ${resultados[0].name}!`);
         }
-    });
+    })
+
+
+
+    exports.login = (req, res) => {
+        const { email, password } = req.body;
+    
+        db.query("SELECT * FROM usuarios WHERE email = ?", [email], async (err, resultados) => {
+            if (err) {
+                console.log(err);
+            }
+            if (resultados.length == 0 || !(await bcrypt.compare(password, resultados[0].password))) {
+                return res.status(401).render('login', {
+                    message: 'El email o la contraseña son incorrectos'
+                });
+            } else {
+                // Aquí puedes manejar el inicio de sesión exitoso
+                res.send(`Bienvenido ${resultados[0].name}!`);
+            }
+        });
+    }
 }
