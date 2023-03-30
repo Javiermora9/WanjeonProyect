@@ -35,14 +35,16 @@ router.get('/Formulario', (req, res) => {
 
 //productos 
 router.get('/PageProductos', (req, res) => {
-    conexion.query('SELECT * productos',(error,results)=>{
+    conexion.query('SELECT * FROM productos',(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('/Pageproductos',{productos:results});
+            res.render('PageProductos',{productos:results});
+        
         }
     })
 });
+
 
 
 
@@ -114,6 +116,7 @@ router.get('/delete/:id', (req, res) => {
 
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
+
 router.post('/save', crud.save);   
 router.post('/update', crud.update);  
 

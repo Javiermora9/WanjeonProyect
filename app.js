@@ -3,6 +3,9 @@ const mysql = require('mysql');
 const dotenv = require('dotenv');
 const path = require('path');
 
+const hbs = require('handlebars');
+
+
 dotenv.config({ path: './.env'});
 
 const app = express();
