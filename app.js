@@ -2,6 +2,10 @@ const express = require('express');
 const mysql = require('mysql');
 const dotenv = require('dotenv');
 const path = require('path');
+const session = require('express-session');
+
+const hbs = require('handlebars');
+
 
 dotenv.config({ path: './.env'});
 
@@ -30,6 +34,12 @@ db.connect((err) => {
     }
 });
 
+app.use(session({
+    secret: 'tu secreto aquí',
+    resave: false,
+    saveUninitialized: false
+}));
+
 //define routes
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
@@ -38,3 +48,4 @@ app.use('/auth', require('./routes/auth'));
 app.listen(4000, () => {
     console.log('Server corriendo en http://localhost:4000');
 });
+

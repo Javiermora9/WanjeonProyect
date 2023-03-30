@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 
 
+
 router.get('/', (req, res) => {
     res.render('mainpag');
 });
@@ -33,16 +34,22 @@ router.get('/Formulario', (req, res) => {
     res.render('Formulario');
 });
 
+const controller = require('../controllers/profile');
+
+router.get('/profile', controller.profile);
+
 //productos 
 router.get('/PageProductos', (req, res) => {
-    conexion.query('SELECT * productos',(error,results)=>{
+    conexion.query('SELECT * FROM productos',(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('/Pageproductos',{productos:results});
+            res.render('PageProductos',{productos:results});
+        
         }
     })
 });
+
 
 
 
@@ -114,6 +121,7 @@ router.get('/delete/:id', (req, res) => {
 
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
+
 router.post('/save', crud.save);   
 router.post('/update', crud.update);  
 

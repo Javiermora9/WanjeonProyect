@@ -21,11 +21,12 @@ exports.register = (req, res) => {
             console.log(err);
             
         }
-        if ( resultados.length > 0) {
+        if ( resultados.Length > 0) {
             return res.render('register', {
                 message: 'El email ya esta registrado'
             });
-        } else if (password!== passwordconfirm) {
+        
+        }else if (password!== passwordconfirm) {
             return res.render('register', {
                 message: 'las contraseñas no coinciden'
             });
@@ -51,6 +52,9 @@ exports.register = (req, res) => {
         db.query("SELECT * FROM usuarios WHERE us_correo = ?", [email], async (err, resultados) => {
             if (err) {
                 console.log(err);
+                return res.status(500).render('login', {
+                    message: 'Ocurrió un error al iniciar sesión'
+                });
             }
             if (resultados.length == 0 || !(await bcrypt.compare(password, resultados[0].us_password))) {
                 return res.status(401).render('login', {
@@ -58,7 +62,8 @@ exports.register = (req, res) => {
                 });
             } else {
                 // Aquí puedes manejar el inicio de sesión exitoso
-                res.redirect('/');
+                req.session.userId = resultados[0].idusuarios;
+                res.redirect('/profile');
                 
             }
         });

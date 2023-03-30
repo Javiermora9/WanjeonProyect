@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -126,31 +127,30 @@
             </div>
 
             <h2 class="title_productos">Productos</h2>
+            
             <!--Fila -->
-            <div class="row" >
-                {{#each productos}}
-                    {{#ifCond @index '%' 4}}
-                        </div><div class="row">
-                <!--Columna -->
-                <div class="col">
-                    <div class="card" >
-                        <h5 class="card-discount"> descuento= {{this.descuento}} % </h5>
-                        <img src="../productos/{{this.imagen}}.jpg" class="card-img-top" alt="..." >
-                        <div class="card-body" >
-                            <h5 class="card-title">{{this.nombre}}</h5>
-                            <p class="card-amount"> {{this.cantidad}}</p>
-                            <h6 class="card-price"> {{this.precio}} </h6>
-                            <a href="#" class="btn2 btn-primary">Comprar</a>
-                        </div>
-                    </div>
+                <div class="row" >
+                    {{#each productos}}
+                        
                     
+                        
+                        <!--Columna -->
+                        <div class="col">
+                            <div class="card" >
+                                <h5 class="card-discount"> descuento= {{this.descuento}} % </h5>
+                                <img src="../productos/{{this.imagen}}.jpg" class="card-img-top" alt="..." >
+                                <div class="card-body" >
+                                    <h5 class="card-title">{{this.nombre}}</h5>
+                                    <p class="card-amount"> {{this.cantidad}}</p>
+                                    <h6 class="card-price"> {{this.precio}} COP </h6>
+                                    <a href="#" class="btn2 btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
                 </div>
-                {{/each}}
-                
-                
-                
             </div>
-
+            
             
             <div class="row">
                 <div class="col-12">

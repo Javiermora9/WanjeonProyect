@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wanjeon</title>
     <link rel="stylesheet" href="EstiloLogin.css">
+    <link rel="stylesheet" href="../EstiloLogin.css">
 </head>
 
 <body>
-<<<<<<< HEAD
 
     <section class="Container">
 
@@ -23,17 +23,17 @@
             </div>
 
 
-            <form action="/login" method="POST">
+            <form action="auth/login" method="POST">
                 <div class="Login_Container_General">
                     <div class="InicioUser">
-
-                        <input type="text" id="username" name="username" placeholder="UserName">
+                        <br>
+                        <input type="email" id="email" name="email" placeholder="Email">
 
 
                     </div>
 
                     <br>
-                    <input type="password" id="password" name="password" placeholder="PassWord">
+                    <input type="password" id="password" name="password" placeholder="contraseña">
                     <br>
                     <a href="register" class="Register"> ¿No tienes Cuenta? </a>
                     <br>
@@ -51,18 +51,6 @@
 
     </section>
 
-=======
-    <h1>Login</h1>
-    <form action="/auth/login" method="POST">
-        <label for="email">Correo electronico:</label>
-        <input type="email" id="email" name="email">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <br>
-        <input type="submit" value="Login">
-    </form>
->>>>>>> 589f4cb9d12aae375c092a9997b0dc607a199174
 </body>
 
 </html>
