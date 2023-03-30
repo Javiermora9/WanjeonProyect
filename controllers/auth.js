@@ -21,12 +21,11 @@ exports.register = (req, res) => {
             console.log(err);
             
         }
-        if ( resultados.Length > 0) {
+        if ( resultados.length > 0) {
             return res.render('register', {
                 message: 'El email ya esta registrado'
             });
-        
-        }else if (password!== passwordconfirm) {
+        } else if (password!== passwordconfirm) {
             return res.render('register', {
                 message: 'las contraseñas no coinciden'
             });
