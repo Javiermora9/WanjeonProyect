@@ -26,8 +26,8 @@ router.get('/Fisios', (req, res) => {
     res.render('Fisios');
 });
 
-router.get('/NosotrosInfo', (req, res) => {
-    res.render('Page_NosotrosInfo');
+router.get('/pagenosotrosinformacion', (req, res) => {
+    res.render('pagenosotrosinformacion');
 });
 
 router.get('/Formulario', (req, res) => {
