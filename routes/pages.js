@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 
 
+
 router.get('/', (req, res) => {
     res.render('mainpag');
 });
@@ -32,6 +33,10 @@ router.get('/NosotrosInfo', (req, res) => {
 router.get('/Formulario', (req, res) => {
     res.render('Formulario');
 });
+
+const controller = require('../controllers/profile');
+
+router.get('/profile', controller.profile);
 
 //productos 
 router.get('/PageProductos', (req, res) => {
