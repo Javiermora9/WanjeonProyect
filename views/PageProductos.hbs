@@ -126,12 +126,32 @@
             </div>
 
             <h2 class="title_productos">Productos</h2>
-            <div class="row" id="lugarProductos">
+            <!--Fila -->
+            <div class="row" >
+                {{#each productos}}
+                    {{#ifCond @index '%' 4}}
+                        </div><div class="row">
+                <!--Columna -->
+                <div class="col">
+                    <div class="card" >
+                        <h5 class="card-discount"> descuento= {{this.descuento}} % </h5>
+                        <img src="../productos/{{this.imagen}}.jpg" class="card-img-top" alt="..." >
+                        <div class="card-body" >
+                            <h5 class="card-title">{{this.nombre}}</h5>
+                            <p class="card-amount"> {{this.cantidad}}</p>
+                            <h6 class="card-price"> {{this.precio}} </h6>
+                            <a href="#" class="btn2 btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                {{/each}}
+                
+                
+                
             </div>
 
-            <div class="row" id="prueba2">
-            </div>
-
+            
             <div class="row">
                 <div class="col-12">
                     <div id="pagination-buttons"></div>

@@ -33,9 +33,17 @@ router.get('/Formulario', (req, res) => {
     res.render('Formulario');
 });
 
+//productos 
 router.get('/PageProductos', (req, res) => {
-    res.render('PageProductos');
+    conexion.query('SELECT * productos',(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('/Pageproductos',{productos:results});
+        }
+    })
 });
+
 
 
 //Rutas hechas por jesus
@@ -101,6 +109,8 @@ router.get('/delete/:id', (req, res) => {
         }
     })
 });
+
+
 
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
