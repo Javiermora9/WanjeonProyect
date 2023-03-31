@@ -106,7 +106,7 @@ router.post('/agendartrat', citatrat.agendartrat);
 //aca van las rutas para editar, crear y borrar tratamientos
 //crud control de los tratamientos 
 router.get('/controltrat',(req,res)=>{
-    
+
     conexion.query('SELECT * FROM tratamientos',(error,results)=>{
         if(error){
             throw error;
@@ -146,7 +146,28 @@ router.get('/delete/:id', (req, res) => {
 });
 
 
-
+router.get('/cancelarcita/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM citatratamiento WHERE citatratid = ?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/tuscitastrat');         
+        }
+    })
+});
+//Tus citas
+//citas tratamientos
+router.get('/tuscitastrat',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM citatratamiento,horariostrat,tratamientos,usuarios WHERE citatratamiento.fk_horariotrat=horariostrat.id and horariostrat.fk_tratamiento=tratamientos.id and citatratamiento.fk_usuario= usuarios.idusuarios and citatratamiento.fk_usuario=?;',[idusuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('tuscitastrat',{results:results});
+        }
+    })
+});
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
 
