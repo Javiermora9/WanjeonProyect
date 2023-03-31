@@ -5,7 +5,7 @@
 
     text-align: center;
     justify-content: center;
-    
+
     border-radius: 10px;
     margin-left: 20%;
     margin-top: 5%;
@@ -17,42 +17,50 @@
 
 
 
-#password, #name, #passwordconfirm, #address,#document,#phone, #email{
+#password,
+#name,
+#passwordconfirm,
+#address,
+#document,
+#phone,
+#email {
 
     width: 250px;
     height: 30px;
     border-radius: 5px;
     border: none;
-   font-size: 18px;
+    font-size: 18px;
 
     background-color: gainsboro;
-    
+
 
 }
 
 
-.Img_Login_titulo{
+.Img_Login_titulo {
 
 
- align-items: center;
+    align-items: center;
 }
 
 .Titulo {
 
     font-size: 40px;
-    text-align: left;
+    text-align: center;
+    font-family: "HudsonNY", sans-serif;
 
 
 }
 
-.Register{
+.Register {
 
     font-size: 20px;
     text-decoration: none;
     color: #4594a5;
-    
+
 }
-.Registro{
+
+.Registro {
 
 
     background-color: white;
@@ -61,37 +69,39 @@
     text-align: center;
     border-radius: 5px;
     box-shadow: -1px 6px 18px 0px rgba(0, 0, 0, 0.75);
-    
+
 
 
 
 }
 
-.logo{
+.logo {
     width: 400px;
     height: 400px;
     border-radius: 5px;
-    box-shadow: 5px 7px 23px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 23px 0px rgba(0, 0, 0, 0.75);
 
-    
+
 }
 
-.logo_Register{
+.logo_Register {
 
     display: flex;
-    
+
     justify-content: center;
 
 }
-.Linea1{
+
+.Linea1 {
 
     text-align: center;
     margin-top: 20px;
-    
-    
+
+
 
 }
-.Btn_Register{
+
+.Btn_Register {
 
 
     width: 150px;
@@ -103,14 +113,22 @@
     font-size: 20px;
     border-radius: 5px;
     transition: 0.4s;
-    
+
 }
 
-.Btn_Register:hover{
+.Btn_Register:hover {
 
     cursor: pointer;
 
     background-color: #80bfb4;
 
 
+}
+
+
+@font-face {
+    font-family: "HudsonNY";
+    src: url("/Fonts/Hudson-NY/Hudson-NY/Hudson\ NY.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
