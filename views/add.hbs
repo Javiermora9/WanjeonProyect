@@ -119,33 +119,38 @@
         </div>
     </div>
 {{/if}}
+    <h1>Agregar Usuario</h1>
 
-    
-    <h1>CRUD Usuarios</h1>
-    <a href="/add">Agregar Usuario</a>
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Dirección</th>
-          <th>Teléfono</th>
-          <th>Documento</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each usuarios}}
-        <tr>
-          <td>{{this.us_nombre}}</td>
-          <td>{{this.us_correo}}</td>
-          <td>{{this.us_direccion}}</td>
-          <td>{{this.us_telefono}}</td>
-          <td>{{this.us_documento}}</td>
-          <td><a href="/edit/{{this.idusuarios}}">Editar</a> | <a href="/delete/{{this.idusuarios}}">Eliminar</a></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    {{#if message}}
+    <p>{{message}}</p>
+    {{/if}}
+
+    <form action="/add" method="POST">
+      <label for="us_nombre">Nombre:</label><br />
+      <input type="text" id="us_nombre" name="us_nombre" /><br />
+
+      <label for="us_correo">Correo:</label><br />
+      <input type="email" id="us_correo" name="us_correo" /><br />
+
+      <label for="us_password">Contraseña:</label><br />
+      <input type="password" id="us_password" name="us_password" /><br />
+
+      <label for="us_passwordconfirm">Confirmar Contraseña:</label><br />
+      <input type="password" id="us_passwordconfirm" name="us_passwordconfirm" /><br />
+
+      <label for="us_direccion">Dirección:</label><br />
+      <input type="text" id="us_direccion" name="us_direccion" /><br />
+
+      <label for="us_telefono">Teléfono:</label><br />
+      <input type="tel" id="us_telefono" name="us_telefono" /><br />
+
+      <label for="us_documento">Documento:</label><br />
+      <input type="text" id="us_documento" name="us_documento" /><br />
+
+      <input type="submit" value="Agregar Usuario" />
+    </form>
+
+    <a href="/index">Volver al inicio</a>
+
   </body>
 </html>
