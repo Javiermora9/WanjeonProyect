@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation&family=Libre+Baskerville&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation&family=Libre+Baskerville&display=swap');
+
 
 .Titulo_Catalogo {
 
@@ -41,9 +40,9 @@
     font-size: 30px;
     margin: 10px;
     text-shadow: 5px 5px 20px  #4594a5;
-    font-family: 'Alkatra', cursive;
-    font-family: 'Edu NSW ACT Foundation', cursive;
-    font-family: 'Libre Baskerville', serif;
+    
+    font-family: "HudsonNY", sans-serif;
+   
 
 
 }
@@ -65,7 +64,7 @@
     margin-left: 50%;
     width: 500px;
     margin-bottom: 20px;
-    font-family: "HudsonNY";
+    font-family: "Courier New", Courier, monospace;
 
 
 }
@@ -78,3 +77,14 @@
     background-color:#80bfb4;
     transform: scale(1.1);
 }
+
+
+
+
+
+@font-face {
+    font-family: "HudsonNY";
+    src: url("/Fonts/Hudson-NY/Hudson-NY/Hudson\ NY.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
