@@ -34,6 +34,11 @@ router.get('/Formulario', (req, res) => {
     res.render('Formulario');
 });
 
+
+router.get('/profile', (req, res) => {
+    res.render('profile');
+});
+
 const controller = require('../controllers/profile');
 
 router.get('/profile', controller.profile);
