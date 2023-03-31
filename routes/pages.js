@@ -38,6 +38,7 @@ const controller = require('../controllers/profile');
 
 router.get('/profile', controller.profile);
 
+
 //productos 
 router.get('/PageProductos', (req, res) => {
     conexion.query('SELECT * FROM productos',(error,results)=>{
@@ -73,6 +74,18 @@ router.get('/catalogotrat',(req,res)=>{
             res.render('catalogotrat',{results:results});
         }
     })
+});
+
+//ruta para solicitar tratamientos 
+router.get('/solicitartrat/:id',(req,res)=>{
+    const id = req.params.id; 
+    conexion.query('SELECT * FROM tratamientos, horariostrat WHERE tratamientos.id=? AND horariostrat.fk_tratamiento=? and horariostrat.Disponible=1',[id, id],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('solicitartrat',{tratamiento:results});
+        }
+    })    
 });
 
 //aca van las rutas para editar, crear y borrar tratamientos

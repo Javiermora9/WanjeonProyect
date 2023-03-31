@@ -62,7 +62,7 @@ exports.register = (req, res) => {
             } else {
                 // Aquí puedes manejar el inicio de sesión exitoso
                 req.session.userId = resultados[0].idusuarios;
-                res.redirect('/profile');
+                res.redirect('/');
                 
             }
         });
