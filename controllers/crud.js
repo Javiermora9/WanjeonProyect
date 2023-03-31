@@ -34,3 +34,20 @@ exports.update=(req,res)=>{
 
     
 }
+
+exports.agendartrat=(req,res)=>{
+    const idhorariotrat= req.body.id;
+    const idusuario=req.session.userId;
+    
+    conexion.query('INSERT INTO citatratamiento SET ?',{fk_horariotrat:idhorariotrat,fk_usuario:idusuario},(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/catalogotrat');
+        }
+    })
+};
+
+    
+
+

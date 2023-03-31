@@ -88,10 +88,15 @@ router.get('/solicitartrat/:id',(req,res)=>{
     })    
 });
 
+//agendar cita tratamiento
+const citatrat = require('../controllers/citatrat');
+router.post('/agendartrat', citatrat.agendartrat);   
+
+ 
 //aca van las rutas para editar, crear y borrar tratamientos
 //crud control de los tratamientos 
 router.get('/controltrat',(req,res)=>{
-
+    
     conexion.query('SELECT * FROM tratamientos',(error,results)=>{
         if(error){
             throw error;

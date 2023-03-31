@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="EstilospagePrincipal.css">
     <link rel="stylesheet" href="Scripts.js">
     <link rel="stylesheet" href="Estilo_Cartas_Servicios.css">
+    <link rel="stylesheet" href="../EstiloHorario.css">
 
     <div>
         <nav class="navbar">
@@ -117,8 +118,15 @@
                     </div> 
                     <div class="mb-3">
                        {{#each tratamiento}}
-                       <a href="#">{{this.nombre}} {{this.fechayhora}}</a>
+                       <form action="/agendartrat" method="POST">
+                       <div class="cajahorario">
+                       <input id="id" name="id" value="{{this.id}}" hidden>
+                       <h6>{{this.nombre}} {{this.fechayhora}}</h6>
+                       <button type="submit" class="btnagendar" >Agendar </button>
                        <br>
+                       <br>
+                        </div>
+                       </form>
                        {{/each}}
                     </div>
                     

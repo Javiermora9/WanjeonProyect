@@ -8,6 +8,7 @@ const db = mysql.createConnection({
 });
 
 exports.profile = (req, res) => {
+    
     db.query("SELECT * FROM usuarios WHERE idusuarios = ?", [req.session.userId], (err, resultados) => {
         if (err) {
             console.log(err);
