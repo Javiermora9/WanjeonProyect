@@ -26,17 +26,12 @@ router.get('/Fisios', (req, res) => {
     res.render('Fisios');
 });
 
-router.get('/pagenosotrosinformacion', (req, res) => {
-    res.render('pagenosotrosinformacion');
+router.get('/NosotrosInfo', (req, res) => {
+    res.render('Page_NosotrosInfo');
 });
 
 router.get('/Formulario', (req, res) => {
     res.render('Formulario');
-});
-
-
-router.get('/profile', (req, res) => {
-    res.render('profile');
 });
 
 const controller = require('../controllers/profile');
