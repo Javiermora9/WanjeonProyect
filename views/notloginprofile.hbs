@@ -79,7 +79,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile">Mi cuenta</a></li>
             <li><a class="dropdown-item" href="">Citas Programadas</a></li>
-            <li><a class="dropdown-item" href="logout"> Cerrar Sesion</a></li>
+            <li><a class="dropdown-item" href="login"> Inicio Sesion</a></li>
 
           </ul>
 
@@ -120,7 +120,7 @@
         <p class="Nom_Perf"> {{us_nombre}} </p>
 
 
-        <a class="Edit_Perf" href="/profile/editprofile">Editar mi información</a>
+        <a class="Edit_Perf" href="/profile/edit">Editar mi información</a>
       </div>
 
 
@@ -136,7 +136,9 @@
           <li>Documento: {{us_documento}}</li>
 
         </ul>
-        
+        {{#if message}}
+                        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                        {{/if}}
       </div>
 
     </div>

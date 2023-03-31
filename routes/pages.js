@@ -26,8 +26,8 @@ router.get('/Fisios', (req, res) => {
     res.render('Fisios');
 });
 
-router.get('/NosotrosInfo', (req, res) => {
-    res.render('Page_NosotrosInfo');
+router.get('/pagenosotrosinformacion', (req, res) => {
+    res.render('pagenosotrosinformacion');
 });
 
 router.get('/Formulario', (req, res) => {
@@ -38,6 +38,16 @@ const controller = require('../controllers/profile');
 
 router.get('/profile', controller.profile);
 
+router.get('/profile/editProfile', controller.editProfile);
+router.post('/updateProfile', controller.updateProfile);
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      if (err) throw err;
+      
+      res.redirect('/');
+    });
+  });
 
 //productos 
 router.get('/PageProductos', (req, res) => {
