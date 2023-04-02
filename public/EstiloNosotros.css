@@ -27,3 +27,12 @@
   .parrafo2 {
     margin: 20px;
   }
+
+
+
+  @font-face {
+    font-family: "HudsonNY";
+    src: url("/Fonts/Hudson-NY/Hudson-NY/Hudson\ NY.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
