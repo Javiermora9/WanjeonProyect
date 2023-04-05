@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const dotenv = require('dotenv');
 const path = require('path');
 const session = require('express-session');
-
+const bodyparser = require('body-parser');
 const hbs = require('handlebars');
 
 
@@ -23,6 +23,9 @@ app.use(express.static(publicDirectory));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
+app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.json());
 
 app.set('view engine', 'hbs');
 

@@ -108,7 +108,7 @@
 
     <section>
         <div>
-            <h2 class="Titulo_Catalogo">Catálogo de tratamientos</h2>
+            <h2 class="Titulo_Catalogo">Tus citas</h2>
 
         </div>
 
@@ -123,10 +123,9 @@
                 </div>
 
                 <div class="IMG_AND_TEX">
-                    <p class="texto">{{this.Descripcion}}</p>
-                    <a href="/solicitartrat/{{this.id}}"><button class="boton_Solit">Solicitar</button></a>
-
-                    
+                    <label><strong>fecha y hora:</strong>{{this.fechayhora}}</label>
+                    <p><strong>Descripcion:</strong>{{this.Descripcion}}</p>
+                    <a href="/cancelarcita/{{this.citatratid}}" class="btn btn-outline-danger">cancelar</a>
                 </div>
 
             </div>

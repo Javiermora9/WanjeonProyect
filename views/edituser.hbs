@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -119,33 +120,33 @@
         </div>
     </div>
 {{/if}}
+    {{#with usuario}}
+    <h1>Editar Usuario: {{this.us_nombre}}</h1>
 
-    
-    <h1>CRUD Usuarios</h1>
-    <a href="/add">Agregar Usuario</a>
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Dirección</th>
-          <th>Teléfono</th>
-          <th>Documento</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each usuarios}}
-        <tr>
-          <td>{{this.us_nombre}}</td>
-          <td>{{this.us_correo}}</td>
-          <td>{{this.us_direccion}}</td>
-          <td>{{this.us_telefono}}</td>
-          <td>{{this.us_documento}}</td>
-          <td><a href="/edit/{{this.idusuarios}}">Editar</a> | <a href="/delete/{{this.idusuarios}}">Eliminar</a></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    <form action="/update/{{this.idusuarios}}" method="POST">
+      <label for="us_nombre">Nombre:</label><br />
+      <input type="text" id="us_nombre" name="us_nombre" value="{{this.us_nombre}}" /><br />
+
+      <label for="us_correo">Correo:</label><br />
+      <input type="email" id="us_correo" name="us_correo" value="{{this.us_correo}}" /><br />
+
+      <label for="us_password">Contraseña:</label><br />
+      <input type="password" id="us_password" name="us_password" value="{{this.us_password}}" /><br />
+
+      <label for="us_direccion">Dirección:</label><br />
+      <input type="text" id="us_direccion" name="us_direccion" value="{{this.us_direccion}}" /><br />
+
+      <label for="us_telefono">Teléfono:</label><br />
+      <input type="tel" id="us_telefono" name="us_telefono" value="{{this.us_telefono}}" /><br />
+
+      <label for="us_documento">Documento:</label><br />
+      <input type="text" id="us_documento" name="us_documento" value="{{this.us_documento}}" /><br />
+
+      <input type="submit" value="Actualizar Usuario" />
+    </form>
+    {{/with}}
+
+    <a href="/index">Volver al inicio</a>
+
   </body>
 </html>

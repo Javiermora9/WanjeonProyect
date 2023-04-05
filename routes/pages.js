@@ -3,7 +3,7 @@ const router = express.Router();
 const mysql = require('mysql');
 const dotenv = require('dotenv');
 const path = require('path');
-
+const bcrypt = require('bcryptjs');
 
 
 router.get('/', (req, res) => {
@@ -37,6 +37,84 @@ router.get('/Formulario', (req, res) => {
 const controller = require('../controllers/profile');
 
 router.get('/profile', controller.profile);
+
+router.get('/profile/editProfile', controller.editProfile);
+router.post('/updateProfile', controller.updateProfile);
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      if (err) throw err;
+      
+      res.redirect('/');
+    });
+  });
+
+  router.get('/index', (req, res) => {
+    const query = 'SELECT * FROM usuarios';
+    conexion.query(query, (err, result) => {
+      if (err) throw err;
+      res.render('index', { usuarios: result });
+    });
+  });
+
+router.get('/add', (req, res) => {
+res.render('add');
+});
+
+router.post('/add', async (req, res) => {
+const { us_nombre, us_correo, us_password, us_passwordconfirm, us_direccion, us_telefono, us_documento } = req.body;
+
+if (us_password !== us_passwordconfirm) {
+    return res.status(400).send('Passwords do not match');
+}
+
+conexion.query('SELECT * FROM usuarios WHERE us_correo = ?', [us_correo], async (err, result) => {
+    if (err) throw err;
+
+    if (result.length > 0) {
+    return res.render('add', { message: 'Email already registered' });
+    }
+
+    const hashedPassword = await bcrypt.hash(us_password, 10);
+
+    const query = 'INSERT INTO usuarios SET ?';
+    const usuario = { us_nombre, us_correo, us_password: hashedPassword, us_direccion, us_telefono, us_documento };
+    conexion.query(query, usuario, (err, result) => {
+    if (err) throw err;
+    res.redirect('/index');
+    });
+});
+});
+
+router.get('/edit/:idusuarios', (req, res) => {
+    const { idusuarios } = req.params;
+    const query = 'SELECT * FROM usuarios WHERE idusuarios = ?';
+    conexion.query(query, [idusuarios], (err, result) => {
+      if (err) throw err;
+      res.render('edituser', { usuario: result[0] });
+    });
+  });
+
+router.post('/update/:idusuarios', (req, res) => {
+const { idusuarios } = req.params;
+const { us_nombre, us_correo, us_password, us_direccion, us_telefono, us_documento } = req.body;
+const query = 'UPDATE usuarios SET us_nombre = ?, us_correo = ?, us_password = ?, us_direccion = ?, us_telefono = ?, us_documento = ? WHERE idusuarios = ?';
+conexion.query(query,[us_nombre,us_correo ,us_password ,us_direccion ,us_telefono ,us_documento,idusuarios],(err,result)=>{
+    if(err) throw err;
+    res.redirect('/index');
+});
+});
+
+router.get('/delete/:idusuarios', (req,res)=>{
+    const {idusuarios} = req.params;
+    const query='DELETE FROM usuarios WHERE idusuarios=?';
+    conexion.query(query,[idusuarios],(err,result)=>{
+        if(err) throw err;
+        res.redirect('/index');
+    });
+});
+
+module.exports=router;
 
 
 //productos 
@@ -88,6 +166,11 @@ router.get('/solicitartrat/:id',(req,res)=>{
     })    
 });
 
+//agendar cita tratamiento
+const citatrat = require('../controllers/citatrat');
+router.post('/agendartrat', citatrat.agendartrat);   
+
+ 
 //aca van las rutas para editar, crear y borrar tratamientos
 //crud control de los tratamientos 
 router.get('/controltrat',(req,res)=>{
@@ -131,7 +214,28 @@ router.get('/delete/:id', (req, res) => {
 });
 
 
-
+router.get('/cancelarcita/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM citatratamiento WHERE citatratid = ?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/tuscitastrat');         
+        }
+    })
+});
+//Tus citas
+//citas tratamientos
+router.get('/tuscitastrat',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM citatratamiento,horariostrat,tratamientos,usuarios WHERE citatratamiento.fk_horariotrat=horariostrat.id and horariostrat.fk_tratamiento=tratamientos.id and citatratamiento.fk_usuario= usuarios.idusuarios and citatratamiento.fk_usuario=?;',[idusuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('tuscitastrat',{results:results});
+        }
+    })
+});
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
 
