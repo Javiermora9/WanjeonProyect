@@ -30,9 +30,7 @@ router.get('/pagenosotrosinformacion', (req, res) => {
     res.render('pagenosotrosinformacion');
 });
 
-router.get('/Formulario', (req, res) => {
-    res.render('Formulario');
-});
+
 
 const controller = require('../controllers/profile');
 
@@ -224,6 +222,13 @@ router.get('/cancelarcita/:id', (req, res) => {
         }
     })
 });
+
+//citas asesores
+//formulario para enviar los datos del usuario
+router.get('/Formulario', (req, res) => {
+    res.render('Formulario');
+});
+
 //Tus citas
 //citas tratamientos
 router.get('/tuscitastrat',(req,res)=>{
@@ -236,6 +241,8 @@ router.get('/tuscitastrat',(req,res)=>{
         }
     })
 });
+
+//citas asesores(pendiente)
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
 
