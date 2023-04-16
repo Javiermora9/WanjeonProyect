@@ -103,41 +103,54 @@
     </div>
 
     {{#if tratamiento}}
-    <div class="container mt-4">
-        <div class="card border-secondary">
-            <div class="card-header"><strong>HORARIOS DISPONIBLES</strong></div>
-            <div class="card-body">
-                
+        <div class="container mt-4">
+            <div class="card border-secondary">
+                <div class="card-header"><strong>HORARIOS DISPONIBLES</strong></div>
+                <div class="card-body">
                     
-                    
-                    <div class="mb-3">
                         
-                        <p>Estos son los horarios disponibles del tratamiento seleccionado , seleccione uno para solicitar 
-                            el tratamiento en esa fecha y hora.</p>
+                        
+                        <div class="mb-3">
                             
-                    </div> 
-                    <div class="mb-3">
-                       {{#each tratamiento}}
-                       <form action="/agendartrat" method="POST">
-                       <div class="cajahorario">
-                       <input id="id" name="id" value="{{this.id}}" hidden>
-                       <h6>{{this.nombre}} {{this.fechayhora}}</h6>
-                       <button type="submit" class="btnagendar" >Agendar </button>
-                       <br>
-                       <br>
+                            <p>Estos son los horarios disponibles del tratamiento seleccionado , seleccione uno para solicitar 
+                                el tratamiento en esa fecha y hora.</p>
+                                
+                        </div> 
+                        <div class="mb-3">
+                        {{#each tratamiento}}
+                        <form action="/agendartrat" method="POST">
+                        <div class="cajahorario">
+                        <input id="id" name="id" value="{{this.id}}" hidden>
+                        <h6>{{this.nombre}} {{this.fechayhora}}</h6>
+                        <button type="submit" class="btnagendar" >Agendar </button>
+                        <br>
+                        <br>
+                            </div>
+                        </form>
+                        {{/each}}
                         </div>
-                       </form>
-                       {{/each}}
-                    </div>
+                        
+                        
+                        <a href="/catalogotrat" class="btn btn-secondary">Cancelar</a>
                     
-                    
-                    <a href="/catalogotrat" class="btn btn-secondary">Cancelar</a>
-                
+                </div>
             </div>
         </div>
-    </div>
-{{/if}}
+    {{else}}
+        <div class="container mt-4">
+            <div class="card border-secondary">
+                <div class="card-header"><strong>NO HAY HORARIOS DISPONIBLES</strong></div>
+                <div class="card-body">
+                        <div class="mb-3">  
+                            <p>No hay horarios disponibles para este tratamiento por el momento, vuelve mas tarde.</p>   
+                        </div> 
+                        <a href="/catalogotrat" class="btn btn-secondary">volver</a>
+                    
+                </div>
+            </div>
+        </div>
 
+    {{/if}}
     
 </body>
 
