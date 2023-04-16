@@ -225,10 +225,15 @@ router.get('/cancelarcita/:id', (req, res) => {
 
 //citas asesores
 //formulario para enviar los datos del usuario
-router.get('/Formulario', (req, res) => {
-    res.render('Formulario');
+router.get('/ListaAsesores', (req, res) => {
+    conexion.query('SELECT * FROM asesores, especialidades WHERE fk_especialidad=id_especialidad',(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('ListaAsesores',{results:results});
+        }
+    })
 });
-
 //Tus citas
 //citas tratamientos
 router.get('/tuscitastrat',(req,res)=>{
