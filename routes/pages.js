@@ -30,6 +30,9 @@ router.get('/pagenosotrosinformacion', (req, res) => {
     res.render('pagenosotrosinformacion');
 });
 
+router.get('/PageProductos', (req, res) => {
+    res.render('PageProductos');
+});
 
 
 const controller = require('../controllers/profile');
