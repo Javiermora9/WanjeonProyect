@@ -108,7 +108,7 @@
 
     <section>
         <div>
-            <h2 class="Titulo_Catalogo">Nuestros asesores</h2>
+            <h2 class="Titulo_Catalogo">Tus citas de asesoria</h2>
 
         </div>
 
@@ -118,17 +118,15 @@
             <div class="tratamientos">
 
                 <div class="Nombre_tratamiento">
-                    <h3>{{this.as_nombre}}</h3>
-                    <img src="../Fotos_asesores/{{this.ase_imagen}}.jpg" class="card-img-top" alt="..." >
+                    <h3>Cita con: {{this.as_nombre}}</h3>
+
                 </div>
 
                 <div class="IMG_AND_TEX">
-                    <h3><strong>Especializado en: </strong>{{this.es_descripcion}}</h3>
-                    <p class="texto"><strong>Numero de celular: </strong>{{this.as_celular}}</p>
-                    <p class="texto"><strong>Correo electronico:  </strong>{{this.as_email}}</p>
-                    <a href="/solicitarases/{{this.id_asesor}}"><button class="boton_Solit">Agendar cita</button></a>
-
-                    
+                    <label><strong>fecha y hora:</strong>{{this.hor_ase_fechayhora}}</label>
+                    <p><strong>En: </strong>consultorio {{this.hor_ase_consultorio}}</p>
+                    <p><strong>Telefono asesor: </strong> {{this.as_celular}}</p>
+                    <a href="/cancelarasesoria/{{this.citaasesid}}" class="btn btn-outline-danger">cancelar</a>
                 </div>
 
             </div>

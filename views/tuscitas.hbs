@@ -107,36 +107,24 @@
 
 
     <section>
-        <div>
-            <h2 class="Titulo_Catalogo">Nuestros asesores</h2>
-
-        </div>
-
-        <div class="Contenedor_Catalogos">
-            {{#each results}}
-
-            <div class="tratamientos">
-
-                <div class="Nombre_tratamiento">
-                    <h3>{{this.as_nombre}}</h3>
-                    <img src="../Fotos_asesores/{{this.ase_imagen}}.jpg" class="card-img-top" alt="..." >
-                </div>
-
-                <div class="IMG_AND_TEX">
-                    <h3><strong>Especializado en: </strong>{{this.es_descripcion}}</h3>
-                    <p class="texto"><strong>Numero de celular: </strong>{{this.as_celular}}</p>
-                    <p class="texto"><strong>Correo electronico:  </strong>{{this.as_email}}</p>
-                    <a href="/solicitarases/{{this.id_asesor}}"><button class="boton_Solit">Agendar cita</button></a>
-
+        <div class="card border-secondary">
+                <div class="card-header"><strong>HORARIOS DISPONIBLES</strong></div>
+                <div class="card-body">
+                    
+                        
+                        
+                        <div class="mb-3">
+                        	<a href="/tuscitastrat" class="btn btn-outline-primary">citas tratamientos</a>
+        			<a href="/tuscitasases" class="btn btn-outline-primary">citas asesorias</a>
+                                
+                        </div> 
+                        
+                        
+                        
+                        
                     
                 </div>
-
             </div>
-
-
-
-            {{/each}}
-        </div>
 
 
 

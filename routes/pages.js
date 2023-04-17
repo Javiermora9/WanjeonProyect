@@ -164,6 +164,10 @@ router.get('/solicitartrat/:id',(req,res)=>{
     })    
 });
 
+//agendar cita asesor
+const citaases = require('../controllers/citaases');
+router.post('/agendarases', citaases.agendarases);   
+
 //agendar cita tratamiento
 const citatrat = require('../controllers/citatrat');
 router.post('/agendartrat', citatrat.agendartrat);   
@@ -226,7 +230,7 @@ router.get('/cancelarcita/:id', (req, res) => {
 //citas asesores
 //formulario para enviar los datos del usuario
 router.get('/ListaAsesores', (req, res) => {
-    conexion.query('SELECT * FROM asesores, especialidades WHERE fk_especialidad=id_especialidad',(error,results)=>{
+    conexion.query('SELECT * FROM asesores, especialidades WHERE fk_especialidad=id_especialidad ORDER BY id_asesor ASC;',(error,results)=>{
         if(error){
             throw error;
         }else{
@@ -234,7 +238,23 @@ router.get('/ListaAsesores', (req, res) => {
         }
     })
 });
+
+//ruta para agendar cita con asesor
+router.get('/solicitarases/:id',(req,res)=>{
+    const id = req.params.id; 
+    conexion.query('SELECT * FROM asesores, horariosase WHERE asesores.id_asesor=? AND horariosase.fk_asesor=? and horariosase.hor_ase_disponible=1',[id, id],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('solicitarases',{asesor:results});
+        }
+    })    
+});
+
 //Tus citas
+router.get('/tuscitas', (req, res) => {
+    res.render('tuscitas');
+});
 //citas tratamientos
 router.get('/tuscitastrat',(req,res)=>{
     const idusuario=req.session.userId;
@@ -246,7 +266,27 @@ router.get('/tuscitastrat',(req,res)=>{
         }
     })
 });
-
+//citas asesores
+router.get('/tuscitasases',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM citaasesor,horariosase,asesores,usuarios WHERE citaasesor.fk_horarioase=horariosase.id_horarioase and horariosase.fk_asesor=asesores.id_asesor and citaasesor.fk_usuario= usuarios.idusuarios and citaasesor.fk_usuario=?;',[idusuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('tuscitasases',{results:results});
+        }
+    })
+});
+router.get('/cancelarasesoria/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM citaasesor WHERE citaasesid = ?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/tuscitasases');         
+        }
+    })
+});
 //citas asesores(pendiente)
 //metodos del crud en el controller crud
 const crud = require('../controllers/crud');
