@@ -108,7 +108,7 @@
 
     <section>
         <div>
-            <h2 class="Titulo_Catalogo">Tus citas de tratamiento</h2>
+            <h2 class="Titulo_Catalogo">Tus citas de asesoria</h2>
 
         </div>
 
@@ -118,14 +118,15 @@
             <div class="tratamientos">
 
                 <div class="Nombre_tratamiento">
-                    <h3>{{this.nombre}}</h3>
+                    <h3>Cita con: {{this.as_nombre}}</h3>
 
                 </div>
 
                 <div class="IMG_AND_TEX">
-                    <label><strong>fecha y hora:</strong>{{this.fechayhora}}</label>
-                    <p><strong>Descripcion:</strong>{{this.Descripcion}}</p>
-                    <a href="/cancelarcita/{{this.citatratid}}" class="btn btn-outline-danger">cancelar</a>
+                    <label><strong>fecha y hora:</strong>{{this.hor_ase_fechayhora}}</label>
+                    <p><strong>En: </strong>consultorio {{this.hor_ase_consultorio}}</p>
+                    <p><strong>Telefono asesor: </strong> {{this.as_celular}}</p>
+                    <a href="/cancelarasesoria/{{this.citaasesid}}" class="btn btn-outline-danger">cancelar</a>
                 </div>
 
             </div>

@@ -107,33 +107,24 @@
 
 
     <section>
-        <div>
-            <h2 class="Titulo_Catalogo">Tus citas de tratamiento</h2>
-
-        </div>
-
-        <div class="Contenedor_Catalogos">
-            {{#each results}}
-
-            <div class="tratamientos">
-
-                <div class="Nombre_tratamiento">
-                    <h3>{{this.nombre}}</h3>
-
+        <div class="card border-secondary">
+                <div class="card-header"><strong>HORARIOS DISPONIBLES</strong></div>
+                <div class="card-body">
+                    
+                        
+                        
+                        <div class="mb-3">
+                        	<a href="/tuscitastrat" class="btn btn-outline-primary">citas tratamientos</a>
+        			<a href="/tuscitasases" class="btn btn-outline-primary">citas asesorias</a>
+                                
+                        </div> 
+                        
+                        
+                        
+                        
+                    
                 </div>
-
-                <div class="IMG_AND_TEX">
-                    <label><strong>fecha y hora:</strong>{{this.fechayhora}}</label>
-                    <p><strong>Descripcion:</strong>{{this.Descripcion}}</p>
-                    <a href="/cancelarcita/{{this.citatratid}}" class="btn btn-outline-danger">cancelar</a>
-                </div>
-
             </div>
-
-
-
-            {{/each}}
-        </div>
 
 
 
