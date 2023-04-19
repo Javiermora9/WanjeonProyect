@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="EstilospagePrincipal.css">
     <link rel="stylesheet" href="Scripts.js">
     <link rel="stylesheet" href="Estilo_Cartas_Servicios.css">
-    <link rel="stylesheet" href="EstiloCatalogopage.css">
+    
+    <link rel="stylesheet" href="EstiloListaAsesores.css">
 </head>
 
 <body>
@@ -115,17 +116,19 @@
         <div class="Contenedor_Catalogos">
             {{#each results}}
 
-            <div class="tratamientos">
+             <h3 class="Nombre_tratamiento">{{this.as_nombre}}</h3>
+            <div class="AsesorTotal">
+               
 
-                <div class="Nombre_tratamiento">
-                    <h3>{{this.as_nombre}}</h3>
-                    <img src="../Fotos_asesores/{{this.ase_imagen}}.jpg" class="card-img-top" alt="..." >
+                <div class="Img_Asesor">
+                    
+                    <img src="../Fotos_asesores/{{this.ase_imagen}}.jpg" class="card-img-top" id="Img_Asesorpersonla" alt="..." >
                 </div>
 
                 <div class="IMG_AND_TEX">
-                    <h3><strong>Especializado en: </strong>{{this.es_descripcion}}</h3>
-                    <p class="texto"><strong>Numero de celular: </strong>{{this.as_celular}}</p>
-                    <p class="texto"><strong>Correo electronico:  </strong>{{this.as_email}}</p>
+                    <p><strong></strong>{{this.es_descripcion}}</p>
+                    <p class="texto">Numero de celular: </strong>{{this.as_celular}}</p>
+                    <p class="texto">Correo electronico:  </strong>{{this.as_email}}</p>
                     <a href="/solicitarases/{{this.id_asesor}}"><button class="boton_Solit">Agendar cita</button></a>
 
                     
