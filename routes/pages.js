@@ -30,9 +30,6 @@ router.get('/pagenosotrosinformacion', (req, res) => {
     res.render('pagenosotrosinformacion');
 });
 
-router.get('/PageProductos', (req, res) => {
-    res.render('PageProductos');
-});
 router.get('/edituser', (req, res) => {
     res.render('edituser');
 });
