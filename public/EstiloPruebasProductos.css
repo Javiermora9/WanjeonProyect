@@ -47,18 +47,18 @@
 }
 #btnbuscar{
 
-    background-color: green;
+    background-color: #4494A6;
     margin-left: 10px;
 }
 .btn-primary{
 
-    background-color: green;
+    background-color: #4494A6;
     cursor: pointer;
     transition: transform .2s;
 
 }
 .btn-primary:hover{
-    background-color: rgb(83, 194, 83);
+    background-color: #4494A6;
     transform: scale(1.2);
 
     
@@ -67,7 +67,7 @@
 
 .card-price {
 
-    color: green;
+    color: #4494A6;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -104,7 +104,7 @@
 
 
 .card-discount {
-    background-color: #fa0000;
+    background-color: #1F8C8C;
     color: #fff;
     font-size: 14px;
     padding: 5px 10px;
@@ -144,7 +144,7 @@ button{
 
     text-align: center;
     border-radius: 10px;
-    background-color: green;
+    background-color: #1F8C8C;
     color: white;
     margin-top: 60px;
     margin-bottom: 1px;
@@ -152,7 +152,7 @@ button{
 .form-label{
 
     font: 100%;
-    background-color: green;
+    background-color: #4494A6;
     border-radius: 10px;
     color: white;
     padding: 5px;
