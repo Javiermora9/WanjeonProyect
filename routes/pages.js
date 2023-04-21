@@ -283,7 +283,7 @@ router.get('/create',(req,res)=>{
 });
 
 //editar tratamientos
-router.get('/edit/:id',(req,res)=>{
+router.get('/edittrat/:id',(req,res)=>{
     const id = req.params.id; 
     conexion.query('SELECT * FROM tratamientos WHERE id=?',[id],(error,results)=>{
         if(error){
@@ -295,7 +295,7 @@ router.get('/edit/:id',(req,res)=>{
 });
 
 //borrar tratamientos 
-router.get('/delete/:id', (req, res) => {
+router.get('/deletetrat/:id', (req, res) => {
     const id = req.params.id;
     conexion.query('DELETE FROM tratamientos WHERE id = ?',[id], (error, results)=>{
         if(error){
@@ -383,7 +383,7 @@ router.get('/cancelarasesoria/:id', (req, res) => {
 const crud = require('../controllers/crud');
 
 router.post('/save', crud.save);   
-router.post('/update', crud.update);  
+router.post('/updatetrat', crud.update);  
 
 module.exports = router;
 
@@ -407,3 +407,52 @@ router.get('/pdcasesores', (req, res) => {
 router.get('/pdcadmin', (req, res) => {
     res.render('pdcadmin');
 });
+//Crud productos
+router.get('/controlprod',(req,res)=>{
+
+    conexion.query('SELECT * FROM productos',(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('controlprod',{results:results});
+        }
+    })
+});
+
+//borrar producto
+router.get('/deleteprod/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM productos WHERE id = ?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/controlprod');         
+        }
+    })
+});
+
+//editar producto
+router.get('/editprod/:id',(req,res)=>{
+    const id = req.params.id; 
+    conexion.query('SELECT * FROM productos WHERE id=?',[id],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('editprod',{producto:results[0]});
+        }
+    })    
+});
+
+
+//agregar producto
+router.get('/createprod',(req,res)=>{
+    res.render('createprod');
+});
+
+
+
+//metodos del crud en el controller crud
+const crudprod= require('../controllers/crudprod');
+
+router.post('/saveprod', crudprod.saveprod);   
+router.post('/updateprod', crudprod.updateprod);  
