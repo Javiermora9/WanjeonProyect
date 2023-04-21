@@ -13,8 +13,8 @@ exports.profile = (req, res) => {
         if (err) {
             console.log(err);
         }
-        if (resultados==undefined) {
-            return res.status(404).render('profile', {
+        if (resultados[0]==undefined) {
+            return res.status(404).render('login', {
                 message: 'No se encontró el usuario'
             });
         } else {
