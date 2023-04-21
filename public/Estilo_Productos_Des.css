@@ -7,9 +7,9 @@
 
     
     height: 600px;
-    width: 700px;
+    width: 65   0px;
     border-radius: 10px;
-    margin: 50px;
+    margin: 40px;
     position: relative;
     box-shadow: 10px 10px 1000px #80bfb4;
 }
@@ -17,7 +17,7 @@
 
     background:  #4494a6;
     height: 700px;
-    width: 800px;
+    width: 750px;
     
 }
 
@@ -100,7 +100,7 @@
     height: 600px;
     width: 700px;
     border-radius: 10px;
-    margin: 50px;
+    margin: 40px;
     position: relative;
     box-shadow: 10px 10px 1000px #80bfb4;
 }
