@@ -53,12 +53,80 @@ router.get('/logout', (req, res) => {
     });
   });
 
-//const backupController = require('../controllers/backupController');
+const backupController = require('../controllers/backup');
 
-//router.get('/backupindex', backupController.showBackups);
-//router.post('/backup', backupController.createBackup);
-//router.get('/backup/:name', backupController.downloadBackup);
-//router.delete('/backup/:name', backupController.deleteBackup);
+const fs = require('fs');
+
+
+router.get('/backup', backupController.crearCopiaSeguridad);
+
+router.get('/backupindex', (req, res) => {
+    const backupsDir = path.join(__dirname, '../backups');
+    fs.readdir(backupsDir, (err, files) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      let html = '<table class="backup-table"><thead><tr><th>Nombre del archivo</th><th>Acciones</th></tr></thead><tbody>';
+      for (let i = 0; i < files.length; i++) {
+        html += `<tr><td>${files[i]}</td><td><form method="post" action="/restore"><button type="submit" name="file" value="${files[i]}">Restaurar</button></form></td></tr>`;
+      }
+      html += '</tbody></table>';
+      res.render('backupindex', { tableHtml: html });
+    });
+  });
+  
+  router.post('/restore', (req, res) => {
+    const backupsDir = path.join(__dirname, '../backups');
+    const file = req.body.file;
+    const filePath = path.join(backupsDir, file);
+  
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+  
+      // Conexión a la base de datos
+      const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'mydb'
+      });
+  
+      // Ejecutar querys para borrar y crear la base de datos
+      connection.query('DROP DATABASE IF EXISTS mydb', (err, result) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(`Base de datos ${connection.config.database} borrada.`);
+      });
+  
+      connection.query(`CREATE DATABASE IF NOT EXISTS ${connection.config.database}`, (err, result) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(`Base de datos ${connection.config.database} creada.`);
+      });
+  
+      // Ejecutar el archivo SQL
+      connection.query(data, (err, result) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(`Archivo ${file} restaurado.`);
+        res.redirect('/backupindex');
+      });
+  
+      // Cerrar conexión
+      connection.end();
+    });
+  });
+ 
 
 module.exports = router;
 
@@ -69,6 +137,14 @@ conexion.query(query, (err, result) => {
     res.render('index', { usuarios: result });
 });
 });
+
+router.get('/indexasesor', (req, res) => {
+    const query = 'SELECT * FROM usuarios';
+    conexion.query(query, (err, result) => {
+        if (err) throw err;
+        res.render('indexasesor', { usuarios: result });
+    });
+    });
 
 router.get('/add', (req, res) => {
 res.render('add');
