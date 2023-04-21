@@ -298,3 +298,24 @@ router.post('/save', crud.save);
 router.post('/update', crud.update);  
 
 module.exports = router;
+
+//otros roles:
+//asesor
+//vista inicial
+router.get('/pdcasesores', (req, res) => {
+    res.render('pdcasesores');
+});
+
+//Clientes
+
+//Horarios
+
+//Citas 
+//Tus citas
+//Agendar citas
+
+
+//ADMIN
+router.get('/pdcadmin', (req, res) => {
+    res.render('pdcadmin');
+});
