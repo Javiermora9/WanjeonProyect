@@ -35,7 +35,7 @@ router.get('/edituser', (req, res) => {
 });
 
 router.get('/pdcadmin', (req, res) => {
-    res.render('edituser');
+    res.render('pdcadmin');
 });
 
 const controller = require('../controllers/profile');
@@ -53,12 +53,12 @@ router.get('/logout', (req, res) => {
     });
   });
 
-const backupController = require('../controllers/backupController');
+//const backupController = require('../controllers/backupController');
 
-router.get('/backupindex', backupController.showBackups);
-router.post('/backup', backupController.createBackup);
-router.get('/backup/:name', backupController.downloadBackup);
-router.delete('/backup/:name', backupController.deleteBackup);
+//router.get('/backupindex', backupController.showBackups);
+//router.post('/backup', backupController.createBackup);
+//router.get('/backup/:name', backupController.downloadBackup);
+//router.delete('/backup/:name', backupController.deleteBackup);
 
 module.exports = router;
 
