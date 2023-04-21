@@ -15,20 +15,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="EstilospagePrincipal.css">
-    <link rel="stylesheet" href="Scripts.js">
-    <link rel="stylesheet" href="Estilo_Cartas_Servicios.css">
-    <link rel="stylesheet" href="EstiloEdit.css">
+    <link rel="stylesheet" href="../EstilospagePrincipal.css">
+    <link rel="stylesheet" href="../Scripts.js">
+    <link rel="stylesheet" href="../Estilo_Cartas_Servicios.css">
+    <link rel="stylesheet" href="../EstiloEdit.css">
     <div>
         <nav class="navbar">
 
             <div class="container-fluid justify-content-between">
                 <nav class="navbar">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/">
+                        
+                        <a class="navbar-brand" href="/pdcadmin">
                             <img src="../Imagenes/logo.png" alt="Logo" width="50" height="30"
                                 class="d-inline-block align-text-top">
-                            Wanjeon
+                            Wanjeon <strong>ADMIN PDC</strong>
                         </a>
                 </nav>
 
@@ -107,7 +108,7 @@
         <div class="card border-secondary">
             <div class="card-header">Editar Tramiento</div>
             <div class="card-body">
-                <form action="/update" method="POST">
+                <form action="/updatetrat" method="POST">
                     <input id="id" name="id" value="{{tratamiento.id}}" hidden>
                     <div class="mb-3">
                         <label for="user" class="from-label">Nombre</label>

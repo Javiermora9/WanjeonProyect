@@ -103,19 +103,31 @@
 
     <div class="container mt-4">
         <div class="card border-secondary">
-            <div class="card-header">Nuevo Tramiento</div>
+            <div class="card-header">Nuevo Producto</div>
             <div class="card-body">
-                <form action="/save" method="POST">
+                <form action="/saveprod" method="POST">
                     <div class="mb-3">
                         <label for="user" class="from-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1">
+                        <input type="text" class="form-control" id="nombre" name="nombre"  tabindex="1">
                     </div>  
                     <div class="mb-3">
-                        <label for="user" class="from-label">Descripcion</label>
-                        <input type="text" class="form-control" id="Descipcion" name="Descripcion" tabindex="1">
+                        <label for="user" class="from-label">Descuento</label>
+                        <input type="text" class="form-control" id="descipcion" name="descripcion"  tabindex="1">
                     </div> 
+                    <div class="mb-3">
+                        <label for="user" class="from-label">Precio</label>
+                        <input type="text" class="form-control" id="precio" name="precio"  tabindex="1">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="user" class="from-label">Nombre de imagen sin extension</label>
+                        <input type="text" class="form-control" id="imagen" name="imagen"  tabindex="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="from-label">Cantidad</label>
+                        <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="1">
+                    </div>  
                     <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
-                    <a href="/controltrat" class="btn btn-secondary">Cancelar</a>
+                    <a href="/controlprod" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>

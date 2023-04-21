@@ -26,10 +26,10 @@
             <div class="container-fluid justify-content-between">
                 <nav class="navbar">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/">
+                        <a class="navbar-brand" href="/pdcadmin">
                             <img src="Imagenes/logo.png" alt="Logo" width="50" height="30"
                                 class="d-inline-block align-text-top">
-                            Wanjeon
+                            Wanjeon <strong>ADMIN PDC</strong>
                         </a>
                 </nav>
 
@@ -125,8 +125,8 @@
                             <td>{{this.nombre}}</td>
                             <td>{{this.Descripcion}}</td>
                             <td>
-                                <a href="/edit/{{this.id}}" class="btn btn-outline-info">editar</a>
-                                <a href="/delete/{{this.id}}" class="btn btn-outline-danger">borrar</a>
+                                <a href="/edittrat/{{this.id}}" class="btn btn-outline-info">editar</a>
+                                <a href="/deletetrat/{{this.id}}" class="btn btn-outline-danger">borrar</a>
                             </td>
                         </tr>
                     {{/each}}
