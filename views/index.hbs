@@ -121,9 +121,12 @@
     </div>
 {{/if}}
 
-    
+    <div class="container text-center">
     <h1>CRUD Usuarios</h1>
-    <a href="/add">Agregar Usuario</a>
+    </div>
+    <div class="container text-center">
+    <a href="/add"class="btn btn-outline-primary mt-4">Agregar Usuario</a>
+    </div>
     <table>
       <thead>
         <tr>
@@ -143,7 +146,7 @@
           <td>{{this.us_direccion}}</td>
           <td>{{this.us_telefono}}</td>
           <td>{{this.us_documento}}</td>
-          <td><a href="/edit/{{this.idusuarios}}">Editar</a> | <a href="/delete/{{this.idusuarios}}">Eliminar</a></td>
+          <td><a href="/edit/{{this.idusuarios}}"class="btn btn-outline-info">Editar</a> | <a href="/delete/{{this.idusuarios}}"class="btn btn-outline-danger">Eliminar</a></td>
         </tr>
         {{/each}}
       </tbody>

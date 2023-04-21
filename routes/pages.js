@@ -34,6 +34,9 @@ router.get('/edituser', (req, res) => {
     res.render('edituser');
 });
 
+router.get('/pdcadmin', (req, res) => {
+    res.render('edituser');
+});
 
 const controller = require('../controllers/profile');
 
@@ -50,13 +53,22 @@ router.get('/logout', (req, res) => {
     });
   });
 
-  router.get('/index', (req, res) => {
-    const query = 'SELECT * FROM usuarios';
-    conexion.query(query, (err, result) => {
-      if (err) throw err;
-      res.render('index', { usuarios: result });
-    });
-  });
+const backupController = require('../controllers/backupController');
+
+router.get('/backupindex', backupController.showBackups);
+router.post('/backup', backupController.createBackup);
+router.get('/backup/:name', backupController.downloadBackup);
+router.delete('/backup/:name', backupController.deleteBackup);
+
+module.exports = router;
+
+router.get('/index', (req, res) => {
+const query = 'SELECT * FROM usuarios';
+conexion.query(query, (err, result) => {
+    if (err) throw err;
+    res.render('index', { usuarios: result });
+});
+});
 
 router.get('/add', (req, res) => {
 res.render('add');
