@@ -33,6 +33,9 @@ router.get('/pagenosotrosinformacion', (req, res) => {
 router.get('/PageProductos', (req, res) => {
     res.render('PageProductos');
 });
+router.get('/edituser', (req, res) => {
+    res.render('edituser');
+});
 
 
 const controller = require('../controllers/profile');
