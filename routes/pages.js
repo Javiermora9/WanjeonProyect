@@ -394,9 +394,52 @@ router.get('/pdcasesores', (req, res) => {
     res.render('pdcasesores');
 });
 
-//Clientes
+//Crud Horarios
+router.get('/controlhora',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM usuarios,asesores,horariosase WHERE fk_id_usuario=? and fk_id_usuario=idusuarios and fk_asesor=id_asesor and hor_ase_Disponible=1;',[idusuario],(error,results)=>{
+        
+        if(error){
+            throw error;
+        }else{
+            res.render('controlhora',{results:results});
+        }
+    })
+});
+//crear horario
+router.get('/createhoraase',(req,res)=>{
+    res.render('createhoraase');
+});
 
-//Horarios
+//editar horario
+router.get('/edithora/:id',(req,res)=>{
+    const id = req.params.id; 
+    conexion.query('SELECT * FROM horariosase WHERE id_horarioase=?',[id],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('edithora',{horario:results[0]});
+        }
+    })    
+});
+//inhabilitar horario
+router.get('/deletehoraase/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('UPDATE horariosase SET hor_ase_Disponible=0 WHERE id_horarioase =?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/controlhora');         
+        }
+    })
+});
+//editar horario
+const crudhoraase= require('../controllers/crudhoraase');
+router.post('/updatehora', crudhoraase.updatehora);   
+
+//save horario
+
+router.post('/savehora', crudhoraase.savehora);   
 
 //Citas 
 //Tus citas
