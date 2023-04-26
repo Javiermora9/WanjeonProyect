@@ -442,9 +442,54 @@ router.post('/updatehora', crudhoraase.updatehora);
 router.post('/savehora', crudhoraase.savehora);   
 
 //Citas 
-//Tus citas
-//Agendar citas
+router.get('/pdccitas',(req,res)=>{
+    res.render('pdccitas');
+});
+//revisar citas
 
+
+router.get('/revisarcitas',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM citaasesor,horariosase,asesores,usuarios WHERE citaasesor.fk_horarioase=horariosase.id_horarioase and horariosase.fk_asesor=asesores.id_asesor and citaasesor.fk_usuario= usuarios.idusuarios and horariosase.fk_asesor= ? ;',[idusuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('revisarcitas',{results:results});
+        }
+    })
+});
+router.get('/cancelarasesoriacliente/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM citaasesor WHERE citaasesid = ?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{           
+            res.redirect('/revisarcitas');         
+        }
+    })
+});
+
+//Agendar citas
+//selecionar usuario
+router.get('/seleccionarcliente', (req, res) => {
+    const query = 'SELECT * FROM usuarios';
+    conexion.query(query, (err, result) => {
+        if (err) throw err;
+        res.render('seleccionarcliente', { usuarios: result });
+    });
+    });
+
+
+router.get('/agendarcitas/:id',(req,res)=>{
+    const idusuario=req.session.userId;
+    conexion.query('SELECT * FROM asesores, horariosase WHERE asesores.id_asesor=? AND horariosase.fk_asesor=? and horariosase.hor_ase_disponible=1',[idusuario, idusuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('solicitarases',{asesor:results});
+        }
+    })    
+});
 
 //ADMIN
 router.get('/pdcadmin', (req, res) => {

@@ -97,34 +97,10 @@
 
     </div>
 
-    {{#if tratamiento}}
-    <div class="container mt-4">
-        <div class="card border-secondary">
-            <div class="card-header">Editar Tramiento</div>
-            <div class="card-body">
-                <form action="/update" method="POST">
-                    <input id="id" name="id" value="{{tratamiento.id}}" hidden>
-                    <div class="mb-3">
-                        <label for="user" class="from-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{tratamiento.nombre}}" tabindex="1">
-                    </div>  
-                    <div class="mb-3">
-                        <label for="user" class="from-label">Descripcion</label>
-                        <input type="text" class="form-control" id="Descipcion" name="Descripcion" value="{{tratamiento.Descripcion}}" tabindex="1">
-                    </div> 
-                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
-                    <a href="/controltrat" class="btn btn-secondary">Cancelar</a>
-                </form>
-            </div>
-        </div>
-    </div>
-{{/if}}
+    
 
     <div class="container text-center">
-    <h1>CRUD Usuarios</h1>
-    </div>
-    <div class="container text-center">
-    <a href="/add"class="btn btn-outline-primary mt-4">Agregar Usuario</a>
+    <h1>Selecciona el usuario</h1>
     </div>
     <table>
       <thead>
@@ -144,6 +120,7 @@
           <td>{{this.us_direccion}}</td>
           <td>{{this.us_telefono}}</td>
           <td>{{this.us_documento}}</td>
+          <td><a href="/agendarcitas/{{this.id}}" class="btn btn-outline-info">editar</a></td>
         </tr>
         {{/each}}
       </tbody>
