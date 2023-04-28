@@ -27,7 +27,7 @@
                 <nav class="navbar">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="/pdcasesores">
-                            <img src="Imagenes/logo.png" alt="Logo" width="50" height="30"
+                            <img src="../Imagenes/logo.png" alt="Logo" width="50" height="30"
                                 class="d-inline-block align-text-top">
                             Wanjeon <strong>ASESOR PDC</strong>
                         </a>
@@ -70,7 +70,7 @@
                     <button class="btn dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
 
-                        <img src="Imagenes/usuarionuevo.png" alt="" id="imagen_usuario">
+                        <img src="../Imagenes/usuarionuevo.png" alt="" id="imagen_usuario">
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile">Mi cuenta</a></li>
@@ -108,16 +108,20 @@
                     
                         
                         
+                        
                         <div class="mb-3">
-                            
-                            <p>Seleciona un horario en el cual agendar la cita</p>
-                                
-                        </div> 
-                        <div class="mb-3">
-                        {{#each asesor}}
+                        
                         <form action="/agendarcitausuario" method="POST">
+                        <div class="mb-3">
+                            {{#each cliente}}
+
+                            <input id="fk_usuario" name="fk_usuario" value="{{this.idusuarios}}" hidden>
+                            <p>Seleciona un horario en el cual agendar la cita para <strong>{{this.us_nombre}}</strong></p>
+                            {{/each}}
+                        </div> 
+                        {{#each asesor}}
                         <div class="cajahorario">
-                        <input id="id" name="id" value="{{this.id_horarioase}}" hidden>
+                        <input id="fk_horarioase" name="fk_horarioase" value="{{this.id_horarioase}}" hidden>
                         <h6>{{this.hor_ase_fechayhora}}</h6>
                         <h6>Consultorio: {{this.hor_ase_consultorio}}</h6>
                         <button type="submit" class="btnagendar" >Agendar </button>
@@ -129,7 +133,7 @@
                         </div>
                         
                         
-                        <a href="/pdccitas" class="btn btn-secondary">Cancelar</a>
+                        <a href="/seleccionarcliente" class="btn btn-secondary">Cancelar</a>
                     
                 </div>
             </div>

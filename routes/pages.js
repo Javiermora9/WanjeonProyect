@@ -480,16 +480,49 @@ router.get('/seleccionarcliente', (req, res) => {
     });
 
 
-router.get('/agendarcitas/:id',(req,res)=>{
-    const idusuario=req.session.userId;
-    conexion.query('SELECT * FROM asesores, horariosase WHERE asesores.id_asesor=? AND horariosase.fk_asesor=? and horariosase.hor_ase_disponible=1',[idusuario, idusuario],(error,results)=>{
-        if(error){
-            throw error;
-        }else{
-            res.render('solicitarases',{asesor:results});
-        }
-    })    
-});
+    router.get('/agendarcitas/:id', (req, res) => {
+        const idcliente = req.params.id;
+        const idusuario = req.session.userId;
+      
+        // Primera consulta
+        const consultaInicial = new Promise((resolve, reject) => {
+          conexion.query('SELECT * FROM asesores, horariosase WHERE asesores.id_asesor=? AND horariosase.fk_asesor=? AND horariosase.hor_ase_disponible=1', [idusuario, idusuario], (error, results) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(results);
+            }
+          });
+        });
+      
+        // Segunda consulta
+        const consultaAdicional = new Promise((resolve, reject) => {
+          conexion.query('SELECT * FROM usuarios WHERE idusuarios = ?', [idcliente], (error, resultados) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(resultados);
+            }
+          });
+        });
+      
+        Promise.all([consultaInicial, consultaAdicional])
+          .then(([results, resultados]) => {
+            res.render('agendarcitas', {
+              asesor: results,
+              cliente: resultados
+            });
+          })
+          .catch(error => {
+            console.error(error);
+            res.status(500).send('Error en la consulta');
+          });
+      });
+
+//controlador para agendar la cita
+
+router.post('/agendarcitausuario', citaases.agendarcitausuario);   
+
 
 //ADMIN
 router.get('/pdcadmin', (req, res) => {

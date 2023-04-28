@@ -110,6 +110,7 @@
           <th>Dirección</th>
           <th>Teléfono</th>
           <th>Documento</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -120,7 +121,7 @@
           <td>{{this.us_direccion}}</td>
           <td>{{this.us_telefono}}</td>
           <td>{{this.us_documento}}</td>
-          <td><a href="/agendarcitas/{{this.id}}" class="btn btn-outline-info">editar</a></td>
+          <td><a href="/agendarcitas/{{this.idusuarios}}" class="btn btn-outline-info">agendar cita</a></td>
         </tr>
         {{/each}}
       </tbody>

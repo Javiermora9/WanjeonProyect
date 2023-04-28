@@ -20,3 +20,16 @@ exports.agendarases=(req,res)=>{
         }
     })
 };
+
+exports.agendarcitausuario=(req,res)=>{
+    const idhorarioase= req.body.fk_horarioase;
+    const idusuario=req.body.fk_usuario;
+    conexion.query('UPDATE horariosase SET hor_ase_Disponible=0 WHERE id_horarioase =?',[idhorarioase]);
+    conexion.query('INSERT INTO citaasesor SET ?',{fk_horarioase:idhorarioase,fk_usuario:idusuario},(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/seleccionarcliente');
+        }
+    })
+};
