@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const dotenv = require('dotenv');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const { exec } = require('child_process');
 
 
 router.get('/', (req, res) => {
@@ -76,56 +77,20 @@ router.get('/backupindex', (req, res) => {
     });
   });
   
-  router.post('/restore', (req, res) => {
-    const backupsDir = path.join(__dirname, '../backups');
-    const file = req.body.file;
-    const filePath = path.join(backupsDir, file);
-  
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-  
-      // Conexión a la base de datos
-      const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'mydb'
-      });
-  
-      // Ejecutar querys para borrar y crear la base de datos
-      connection.query('DROP DATABASE IF EXISTS mydb', (err, result) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log(`Base de datos ${connection.config.database} borrada.`);
-      });
-  
-      connection.query(`CREATE DATABASE IF NOT EXISTS ${connection.config.database}`, (err, result) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log(`Base de datos ${connection.config.database} creada.`);
-      });
-  
-      // Ejecutar el archivo SQL
-      connection.query(data, (err, result) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log(`Archivo ${file} restaurado.`);
-        res.redirect('/backupindex');
-      });
-  
-      // Cerrar conexión
-      connection.end();
-    });
+  router.get('/restaurar/:nombreArchivo', backupController.restaurarCopiaSeguridad);
+  router.post('/restore', backupController.restaurarCopiaSeguridad);
+
+  router.get('/configbackup', (req, res) => {
+    res.render('configbackup');
   });
+
+  router.post('/configbackup', (req, res) => {
+    const { frecuencia } = req.body;
+    backupController.programarCopiaSeguridad(frecuencia);
+    res.redirect('/backupindex');
+  });
+  
+  
  
 
 module.exports = router;
@@ -139,7 +104,7 @@ conexion.query(query, (err, result) => {
 });
 
 router.get('/indexasesor', (req, res) => {
-    const query = 'SELECT * FROM usuarios';
+    const query = 'SELECT * FROM usuarios WHERE tipo_usuario_idtipo_usuario = 1';
     conexion.query(query, (err, result) => {
         if (err) throw err;
         res.render('indexasesor', { usuarios: result });
@@ -174,6 +139,35 @@ conexion.query('SELECT * FROM usuarios WHERE us_correo = ?', [us_correo], async 
     });
 });
 });
+
+router.get('/addasesor', (req, res) => {
+    res.render('addasesor');
+    });
+    
+    router.post('/addasesor', async (req, res) => {
+    const { us_nombre, us_correo, us_password, us_passwordconfirm, us_direccion, us_telefono, us_documento } = req.body;
+    
+    if (us_password !== us_passwordconfirm) {
+        return res.status(400).send('Passwords do not match');
+    }
+    
+    conexion.query('SELECT * FROM usuarios WHERE us_correo = ?', [us_correo], async (err, result) => {
+        if (err) throw err;
+    
+        if (result.length > 0) {
+        return res.render('add', { message: 'Email already registered' });
+        }
+    
+        const hashedPassword = await bcrypt.hash(us_password, 10);
+    
+        const query = 'INSERT INTO usuarios SET ?';
+        const usuario = { us_nombre, us_correo, us_password: hashedPassword, us_direccion, us_telefono, us_documento };
+        conexion.query(query, usuario, (err, result) => {
+        if (err) throw err;
+        res.redirect('/index');
+        });
+    });
+    });
 
 router.get('/edit/:idusuarios', (req, res) => {
     const { idusuarios } = req.params;
